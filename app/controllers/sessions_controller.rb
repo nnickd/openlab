@@ -9,4 +9,9 @@ class SessionsController < ApplicationController
     redirect_to users_path
   end
 
+  def home
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
 end
