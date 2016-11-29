@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/topbar' %>
+    <%= render 'layouts/topbar' unless current_page?(:controller => 'sessions', :action => 'home') %>
 
     <%= yield %>
 
