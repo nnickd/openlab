@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     return render :new unless @user.save
-    redirect_to root_path, notice: 'Created user'
+    redirect_to new_sessions_path, notice: 'Created user'
   end
 
   private
