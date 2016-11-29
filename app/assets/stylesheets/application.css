@@ -12,10 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
 
- .container {
-   display: flex;
-   flex-direction: column;
-   width: 200px;
+ * {
+   box-sizing: border-box;
+ }
+
+ .box {
+   height: 600px;
  }

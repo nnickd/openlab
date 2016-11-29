@@ -1,11 +1,14 @@
-<%= form_for @user do |f| %>
-<div class="container">
+<div class="row align-center align-middle box">
 
-    <%= f.text_field :username, placeholder: "username"  %>
-    <%= f.text_field :name, placeholder: "name"  %>
-    <%= f.text_field :email, placeholder: "email"  %>
-    <%= f.password_field :password, placeholder: "password"  %>
-    <%= f.password_field :password_confirmation, placeholder: "confirmation" %>
-    <%= f.submit 'Sign up' %>
+    <%= form_for @user do |f| %>
+    <div class="callout align-center align-middle">
+        <%= f.text_field :username, placeholder: "username", class: "text-center"  %>
+        <%= f.text_field :name, placeholder: "name", class: "text-center"  %>
+        <%= f.text_field :email, placeholder: "email", class: "text-center"  %>
+        <%= f.password_field :password, placeholder: "password", class: "text-center"  %>
+        <%= f.password_field :password_confirmation, placeholder: "confirmation", class: "text-center" %>
+        <%= f.submit 'Sign up', class: "expanded large button" %>
+    </div>
+    <% end %>
+
 </div>
-<% end %>
