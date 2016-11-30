@@ -16,23 +16,9 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
 
-    <%= f.label :about %>
-    <%= f.text_area :about %>
-
-    <%= f.label :context %>
-    <%= f.text_area :context %>
-
-    <%= f.label :significance %>
-    <%= f.text_area :significance %>
-
-    <%= f.label :goals %>
-    <%= f.text_area :goals %>
-
     <%= submit_tag @tag, name: f, class: 'button expanded', value: 'create project' %>
 
     <% end %>
 </div>
 
-<p>
-    <a data-open="create-project" class="button expanded">Start a new project</a>
-</p>
+<a data-open="create-project" class="button expanded">Start a new project</a>

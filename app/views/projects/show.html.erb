@@ -30,5 +30,5 @@
   <%= @project.goals %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= render 'edit-form', project: @project %>
 <%= link_to 'Back', projects_path %>

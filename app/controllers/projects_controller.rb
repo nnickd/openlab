@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user.projects.new(create_project_params)
 
     respond_to do |format|
       if @project.save
@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1.json
   def update
     respond_to do |format|
-      if @project.update(project_params)
+      if @project.update(update_project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
@@ -68,7 +68,10 @@ class ProjectsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
+    def create_project_params
+      params.require(:project).permit(:title)
+    end
+    def update_project_params
       params.require(:project).permit(:title, :about, :context, :significance, :goals)
     end
 end
