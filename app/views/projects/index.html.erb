@@ -2,18 +2,4 @@
 
 <h1>Projects</h1>
 
-<table>
-
-    <tbody class="row large-up-3">
-        <% @projects.each do |project| %>
-
-        <tr class="column">
-            <td><%= project.user.username %></td>
-            <td><%= project.title %></td>
-            <td><%= project.about %></td>
-            <td><%= link_to 'Show', project, class: "button" %></td>
-        </tr>
-
-        <% end %>
-    </tbody>
-</table>
+<%= render 'thumbs', projects: @projects %>
