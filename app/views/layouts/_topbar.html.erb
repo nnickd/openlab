@@ -9,7 +9,7 @@
         <%= link_to current_user.username, users_path, class: "button"%>
         <%= link_to 'log out', root_path, class: "button" %>
         <% else %>
-        <%= link_to 'log in', new_sessions_path, class: "button" %>
+        <%= link_to 'log in', root_path, class: "button" %>
         <% end %>
     </div>
 </div>
