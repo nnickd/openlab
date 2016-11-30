@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @project = create_project
   end
 
   def create

@@ -1,10 +1,13 @@
-<div class="topbar callout">
-    <ul class="menu align-right">
+<div class="topbar callout menu">
+    <div class="menu align-center">
+      <%= link_to 'projects', projects_path, class: "button" %>
+    </div>
+    <div class="menu align-right">
         <% if current_user %>
+        <%= link_to current_user.username, users_path, class: "button"%>
         <%= link_to 'log out', root_path, class: "button" %>
         <% else %>
-        <%= link_to 'sign up', new_users_path, class: "button" %>
         <%= link_to 'log in', new_sessions_path, class: "button" %>
         <% end %>
-    </ul>
+    </div>
 </div>

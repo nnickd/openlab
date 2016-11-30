@@ -1,42 +1,36 @@
+<div class="reveal" id="create-project" data-reveal>
 <%= form_for(project) do |f| %>
-  <% if project.errors.any? %>
+
+    <% if project.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+        <h2><%= pluralize(project.errors.count, "error") %>
+            prohibited this project from being saved:</h2>
 
-      <ul>
-      <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+            <% project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
+    <% end %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+        <%= f.label :about %>
+        <%= f.text_area :about %>
 
-  <div class="field">
-    <%= f.label :about %>
-    <%= f.text_area :about %>
-  </div>
+        <%= f.label :context %>
+        <%= f.text_area :context %>
 
-  <div class="field">
-    <%= f.label :context %>
-    <%= f.text_area :context %>
-  </div>
+        <%= f.label :significance %>
+        <%= f.text_area :significance %>
 
-  <div class="field">
-    <%= f.label :significance %>
-    <%= f.text_area :significance %>
-  </div>
+        <%= f.label :goals %>
+        <%= f.text_area :goals %>
 
-  <div class="field">
-    <%= f.label :goals %>
-    <%= f.text_area :goals %>
-  </div>
+        <%= submit_tag @tag, name: f, class: 'button expanded', value: 'create project' %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <% end %>
+</div>
+
+<p><a data-open="create-project" class="button expanded">Start a new project</a></p>
