@@ -1,15 +1,12 @@
-<table>
+<div class="row" id="thumb-box">
+    <% projects.each do |project| %>
 
-    <tbody class="row large-up-3">
-        <% projects.each do |project| %>
+    <div class="callout thumb">
+        <%= project.user.username %>
+        <%= project.title %>
+        <%= project.about %>
+        <%= link_to 'Show', project, class: "button" %>
+    </div>
 
-        <tr class="column">
-            <td><%= project.user.username %></td>
-            <td><%= project.title %></td>
-            <td><%= project.about %></td>
-            <td><%= link_to 'Show', project, class: "button" %></td>
-        </tr>
-
-        <% end %>
-    </tbody>
-</table>
+    <% end %>
+</div>
