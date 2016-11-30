@@ -28,6 +28,8 @@
     <%= f.label :goals %>
     <%= f.text_area :goals %>
 
+    <%= f.hidden_field :posted, value: false %>
+
     <%= submit_tag @tag, name: f, class: 'button expanded', value: 'edit project' %>
 
     <% end %>
