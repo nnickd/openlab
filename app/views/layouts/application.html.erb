@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/topbar' unless current_page?(:controller => 'sessions', :action => 'home') %>
+    <%= render 'layouts/topbar' %>
     <%= render 'projects/form', project: create_project if current_user %>
 
     <%= yield %>
