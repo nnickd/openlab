@@ -28,9 +28,10 @@
     <%= f.label :goals %>
     <%= f.text_area :goals %>
 
-    <%= f.hidden_field :posted, value: false %>
+    <%= f.label :posted %>
+    <%= f.text_field :posted %>
 
-    <%= submit_tag @tag, name: f, class: 'button expanded', value: 'edit project' %>
+    <%= f.submit 'edit project', class: 'button expanded' %>
 
     <% end %>
 </div>

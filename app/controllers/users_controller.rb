@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @project = create_project
+    @projects = current_user.projects
   end
 
   def create

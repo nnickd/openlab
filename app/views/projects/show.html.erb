@@ -35,4 +35,4 @@
   <%= @project.posted %>
 </p>
 
-<%= render 'edit-form', project: @project %>
+<%= render 'edit-form', project: @project if current_user == @project.user %>
