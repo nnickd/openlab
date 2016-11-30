@@ -1,4 +1,4 @@
-<div class="reveal" id="create-project" data-reveal>
+<div class="reveal" id="edit-project" data-reveal>
     <%= form_for(project) do |f| %>
 
     <% if project.errors.any? %>
@@ -28,11 +28,9 @@
     <%= f.label :goals %>
     <%= f.text_area :goals %>
 
-    <%= submit_tag @tag, name: f, class: 'button expanded', value: 'create project' %>
+    <%= submit_tag @tag, name: f, class: 'button expanded', value: 'edit project' %>
 
     <% end %>
 </div>
 
-<p>
-    <a data-open="create-project" class="button expanded">Start a new project</a>
-</p>
+<a data-open="edit-project" class="button">edit</a>

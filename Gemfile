@@ -50,3 +50,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'hirb'
 
 gem 'foundation-rails'
+
+gem 'record_tag_helper' 
