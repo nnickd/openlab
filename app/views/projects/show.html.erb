@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @project.user %>
+  <%= @project.user.username %>
 </p>
 
 <p>
@@ -31,4 +31,3 @@
 </p>
 
 <%= render 'edit-form', project: @project %>
-<%= link_to 'Back', projects_path %>

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -10,15 +10,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-  end
-
-  # GET /projects/new
-  def new
-    @project = create_project
-  end
-
-  # GET /projects/1/edit
-  def edit
   end
 
   # POST /projects
@@ -71,6 +62,7 @@ class ProjectsController < ApplicationController
     def create_project_params
       params.require(:project).permit(:title)
     end
+
     def update_project_params
       params.require(:project).permit(:title, :about, :context, :significance, :goals)
     end
