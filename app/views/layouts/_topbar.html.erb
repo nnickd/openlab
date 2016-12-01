@@ -1,14 +1,17 @@
 <div class="topbar callout menu">
-    <div class="menu align-left">
-    </div>
+    <div class="menu align-left"></div>
     <div class="menu align-center">
-      <%= link_to 'discover projects', projects_path, class: "button expanded" %>
+        <% if current_page?(:controller => 'projects', :action => 'index') %>
+        <h1>Explore Projects</h1>
+    <% else %>
+        <%= link_to 'discover projects', projects_path, class: "button expanded" %>
+        <% end %>
     </div>
     <div class="menu align-right">
         <% if current_user %>
         <%= link_to current_user.username, users_path, class: "button"%>
         <%= link_to 'log out', root_path, class: "button" %>
-        <% else %>
+    <% else %>
         <%= link_to 'log in', root_path, class: "button" unless current_page?(:controller => 'sessions', :action => 'home') %>
         <% end %>
     </div>
