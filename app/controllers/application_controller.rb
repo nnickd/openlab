@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-  def create_user
-    @user = User.new
+  def create_user(params)
+    @user = User.new(params)
   end
 
   def create_project
