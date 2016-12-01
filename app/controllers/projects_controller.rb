@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @log = @project.logs.new
+    @logs = @project.logs
   end
 
   # POST /projects

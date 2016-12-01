@@ -1,0 +1,7 @@
+<% logs.each do |log| %>
+<div class="callout columns medium-2 text-center">
+  <%= log.title %><br />
+  <%= log.body %><br />
+  <%= log.project.user.username %>
+</div>
+<% end %>

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :projects
   root 'sessions#home'
+  resources :projects
 
-  resource :logs
+  resources :logs
   resource :sessions
   resource :users
 

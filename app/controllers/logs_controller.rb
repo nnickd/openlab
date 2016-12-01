@@ -1,19 +1,21 @@
 class LogsController < ApplicationController
-
   def create
-    set_project
-    @log = @project.logs.new if current_user
+    @log = Log.new(log_params)
+
+    respond_to do |format|
+      if @log.save
+        format.html { redirect_to @log.project, notice: 'Log was successfully posted.' }
+        format.json { render :show, status: :created, location: @project }
+      else
+        format.html { redirect_to users_path }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
 
-  def set_project
-    @project = Project.find(params[:id])
-  end
-
   def log_params
-    params.require(:log).permit(:title, :body)
+    params.require(:log).permit(:title, :body, :user_id, :project_id)
   end
-
-
 end
