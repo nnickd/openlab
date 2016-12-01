@@ -1,40 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user.username %>
-</p>
+<ul class="tabs" data-tabs id="example-tabs">
+  <li class="tabs-title is-active">
+    <a href="#panel1" aria-selected="true">Info</a>
+  </li>
+  <li class="tabs-title">
+    <a href="#panel2">Logs</a>
+  </li>
+  <li class="tabs-title">
+    <a href="#panel3">three</a>
+  </li>
+</ul>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @project.about %>
-</p>
-
-<p>
-  <strong>Context:</strong>
-  <%= @project.context %>
-</p>
-
-<p>
-  <strong>Significance:</strong>
-  <%= @project.significance %>
-</p>
-
-<p>
-  <strong>Goals:</strong>
-  <%= @project.goals %>
-</p>
-
-<p>
-  <strong>Posted:</strong>
-  <%= @project.posted %>
-</p>
-
-<%= render 'edit-form', project: @project if current_user == @project.user %>
-<%= render 'logs/form', {log: @log, project: @project} if current_user == @project.user %>
-<%= render 'logs/list', logs: @logs %>
+<div class="tabs-content" data-tabs-content="example-tabs">
+  <div class="tabs-panel is-active" id="panel1">
+    <%= render 'info' %>
+    <%= render 'edit-form', project: @project if current_user == @project.user %>
+  </div>
+  <div class="tabs-panel" id="panel2">
+    <%= render 'logs/list', logs: @logs %>
+    <%= render 'logs/form', {log: @log, project: @project} if current_user == @project.user %>
+  </div>
+  <div class="tabs-panel" id="panel3">
+  </div>
+</div>
