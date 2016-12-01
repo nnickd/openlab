@@ -1,5 +1,5 @@
 <% logs.each do |log| %>
-<div class="callout columns medium-2 text-center">
+<div class="callout columns text-center">
   <%= log.title %><br />
   <%= log.body %><br />
   <%= link_to log.project.title, log.project, class: "button" if current_page?(:controller => 'users', :action => 'show') %>
