@@ -51,4 +51,6 @@ gem 'hirb'
 
 gem 'foundation-rails'
 
-gem 'record_tag_helper' 
+gem 'record_tag_helper'
+
+gem "rails-erd"
