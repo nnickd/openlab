@@ -15,13 +15,15 @@
 
 <div class="tabs-content" data-tabs-content="example-tabs">
     <div class="tabs-panel is-active" id="panel1">
-        <%= render 'table' %>
+        <%= render 'info' %>
     </div>
     <div class="tabs-panel" id="panel2">
         <%= render 'projects/thumbs', projects: @projects %>
     </div>
     <div class="tabs-panel" id="panel3">
+      <div class="medium-2">
         <%= render 'logs/list', logs: @logs %>
+      </div>
     </div>
     <div class="tabs-panel" id="panel4">
     </div>

@@ -1,0 +1,3 @@
+<%= log.title %><br />
+<%= log.body %><br />
+<%= link_to log.project.title, log.project, class: "button" if current_page?(:controller => 'users', :action => 'show') %>
