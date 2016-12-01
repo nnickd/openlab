@@ -1,3 +1,23 @@
-<%= render 'table' %>
+<ul class="tabs" data-tabs id="example-tabs">
+    <li class="tabs-title is-active">
+        <a href="#panel1" aria-selected="true">Profile</a>
+    </li>
+    <li class="tabs-title">
+        <a href="#panel2">Created Projects</a>
+    </li>
+    <li class="tabs-title">
+        <a href="#panel3">Posted Logs</a>
+    </li>
+</ul>
 
-<%= render 'projects/thumbs', projects: @projects %>
+<div class="tabs-content" data-tabs-content="example-tabs">
+    <div class="tabs-panel is-active" id="panel1">
+        <%= render 'table' %>
+    </div>
+    <div class="tabs-panel" id="panel2">
+        <%= render 'projects/thumbs', projects: @projects %>
+    </div>
+    <div class="tabs-panel" id="panel3">
+        <%= render 'logs/list', logs: @logs %>
+    </div>
+</div>
