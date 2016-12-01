@@ -2,6 +2,6 @@
 <div class="callout columns medium-2 text-center">
   <%= log.title %><br />
   <%= log.body %><br />
-  <%= link_to 'show project', log.project, class: "button" if current_page?(:controller => 'users', :action => 'show') %>
+  <%= link_to log.project.title, log.project, class: "button" if current_page?(:controller => 'users', :action => 'show') %>
 </div>
 <% end %>
