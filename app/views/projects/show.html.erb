@@ -19,7 +19,7 @@
   </div>
   <div class="tabs-panel" id="panel2">
     <%= render 'logs/list', logs: @logs %>
-    <%= render 'logs/form', {log: @log, project: @project} if current_user == @project.user %>
+    <%= render 'logs/form', log: @log, project: @project if current_user == @project.user %>
   </div>
   <div class="tabs-panel" id="panel3">
   </div>
