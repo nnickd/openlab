@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :projects
   root 'sessions#home'
 
+  resource :logs
   resource :sessions
   resource :users
 

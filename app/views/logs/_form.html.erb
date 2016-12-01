@@ -1,0 +1,6 @@
+<%= form_tag log do %>
+<%= text_field :title, placeholder: "title", class: "text-center"  %>
+<%= text_area :body, placeholder: "body", class: "text-center"  %>
+
+<%= submit_tag 'post log', class: "expanded large button" %>
+<% end %>
