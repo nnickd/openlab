@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
   def create
-    @log = Log.new(log_params)
+    create_log log_params
 
     respond_to do |format|
       if @log.save
