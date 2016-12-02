@@ -54,3 +54,5 @@ gem 'foundation-rails'
 gem 'record_tag_helper'
 
 gem "rails-erd"
+
+gem 'stripe'
