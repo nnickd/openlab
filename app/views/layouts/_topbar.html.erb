@@ -1,5 +1,7 @@
 <div class="topbar callout menu">
-    <div class="menu align-left"></div>
+    <div class="menu align-left">
+        <%= render 'projects/search' %>
+    </div>
     <div class="menu align-center">
         <% if current_page?(:controller => 'projects', :action => 'index') %>
         <h1>Explore Projects</h1>

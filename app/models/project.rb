@@ -5,6 +5,10 @@ class Project < ApplicationRecord
   validates :title, uniqueness: true
 
   def to_param
-    self.title
+    title
+  end
+
+  def self.search(search)
+    self.where(['title LIKE ?', "%#{search}%"])
   end
 end
