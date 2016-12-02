@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+  def index
+      end
+
   def show
+    @project = current_user.projects.new
     @projects = current_user.projects
     @logs = current_user.logs
   end

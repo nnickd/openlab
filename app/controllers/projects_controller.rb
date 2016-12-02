@@ -16,9 +16,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    byebug
     @project = current_user.projects.new(create_project_params)
     return redirect_back(fallback_location: :fallback_location) unless @project.save
-    redirect_to @project, notice: 'Project was successfully created.'
+    redirect_to project_path(@project.title), notice: 'Project was successfully created.'
   end
 
   def update
