@@ -7,7 +7,7 @@ class LogsController < ApplicationController
         format.html { redirect_to @log.project, notice: 'Log was successfully posted.' }
         format.json { render :show, status: :created, location: @project }
       else
-        format.html { redirect_to users_path }
+        format.html { redirect_to @log.project }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
