@@ -1,4 +1,4 @@
-class ChargesController < ApplicationController
+class PaymentsController < ApplicationController
 
 
   def create

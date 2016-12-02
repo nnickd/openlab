@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :users
 
   resources :logs
-  resources :charges
+  resources :payments
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
