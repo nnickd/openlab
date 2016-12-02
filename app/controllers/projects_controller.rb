@@ -4,10 +4,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    @projects = Project.where(posted: true)
     @projects = if params[:search]
-                  Project.search(params[:search]).order('created_at DESC')
+                  @projects.search(params[:search]).order('created_at DESC')
                 else
-                  Project.where(posted: true).order('created_at DESC')
+                  @projects.order('created_at DESC')
                 end
   end
 

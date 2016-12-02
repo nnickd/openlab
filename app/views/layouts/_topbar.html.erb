@@ -3,11 +3,7 @@
         <%= render 'projects/search' %>
     </div>
     <div class="menu align-center">
-        <% if current_page?(:controller => 'projects', :action => 'index') %>
-        <h1>Explore Projects</h1>
-    <% else %>
         <%= link_to 'discover projects', projects_path, class: "button expanded" %>
-        <% end %>
     </div>
     <div class="menu align-right">
         <% if current_user %>
