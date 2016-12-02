@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202181137) do
+ActiveRecord::Schema.define(version: 20161202181411) do
 
   create_table "logs", force: :cascade do |t|
     t.string   "title"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161202181137) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.boolean  "posted"
+    t.integer  "pool_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
