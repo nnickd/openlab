@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201031359) do
+ActiveRecord::Schema.define(version: 20161202181137) do
 
   create_table "logs", force: :cascade do |t|
     t.string   "title"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20161201031359) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.index ["project_id"], name: "index_logs_on_project_id"
+  end
+
+  create_table "pools", force: :cascade do |t|
+    t.integer  "goal"
+    t.integer  "pledged"
+    t.datetime "deadline"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
