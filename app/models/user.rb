@@ -3,4 +3,6 @@ class User < ApplicationRecord
   has_many :projects
   has_many :logs, through: :projects
   validates :username, presence: true
+
+  has_many :payments
 end
