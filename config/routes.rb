@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resource :sessions
   resource :users
 
-  # get '/logs' to: 'logs#create', as: 'logs_path'
   resources :logs
+  resources :charges
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
