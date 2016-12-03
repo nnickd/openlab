@@ -1,4 +1,4 @@
 class Pool < ApplicationRecord
-  has_many :projects
+  belongs_to :project
   has_many :payments
 end
