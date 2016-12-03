@@ -19,8 +19,8 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(create_project_params)
     return redirect_back(fallback_location: :fallback_location) unless @project.save
-    # redirect_to project_path(@project.title), notice: 'Project was successfully created.'
     redirect_to @project, notice: 'Project was successfully created.'
+    # redirect_to project_path(@project.title), notice: 'Project was successfully created.'
   end
 
   def update
@@ -35,13 +35,11 @@ class ProjectsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_project
-    # @project = Project.find_by_title(params[:id])
     @project = Project.find(params[:id])
+    # @project = Project.find_by_title(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def create_project_params
     params.require(:project).permit(:title, :posted)
   end

@@ -1,14 +1,8 @@
 class PoolsController < ApplicationController
   def create
     @pool = Pool.new(pool_params)
-
-    respond_to do |format|
-      if @pool.save
-        format.html { redirect_to @pool.project, notice: 'Log was successfully posted.' }
-      else
-        format.html { redirect_to @pool.project }
-      end
-    end
+    return redirect_to @pool.project, notice: 'Log was successfully posted.' if @pool.save
+    redirect_to @pool.project
   end
 
   private

@@ -1,25 +1,28 @@
-<%= form_for(pool) do |f| %>
+<div class="reveal" id="create-fund" data-reveal>
 
-<% if pool.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(pool.errors.count, "error") %>
-        prohibited this pool from being saved:</h2>
+    <%= form_for(pool) do |f| %>
 
-    <ul>
-        <% pool.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
+    <% if pool.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(pool.errors.count, "error") %>
+            prohibited this pool from being saved:</h2>
+        <ul>
+            <% pool.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <%= f.label :goal %>
+    <%= f.number_field :goal %>
+    <%= f.label :deadline %>
+    <%= date_select("f", "datetime") %>
+    <%= f.hidden_field :project_id, value: project %>
+    <%= f.submit 'Create pool', class: "expanded large button" %>
+
+    <% end %>
+
 </div>
-<% end %>
 
-<%= f.label :goal %>
-<%= f.number_field :goal %>
-<%= f.label :deadline %>
-<%= date_select("f", "datetime") %>
-<%= f.hidden_field :project_id, value: project %>
-
-<%= f.submit 'Create pool', class: "expanded large button" %>
-
-
-<% end %>
+<a data-open="create-fund" class="button expanded">Start a new fund</a>

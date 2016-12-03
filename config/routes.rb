@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   post '/payments' => 'payments#create'
 
   post '/logs' => 'logs#create'
-  # patch '/logs' => 'logs#update'
-  # put '/logs' => 'logs#update'
-  # delete '/logs' => 'logs#destroy'
+  patch '/logs' => 'logs#update'
+  put '/logs' => 'logs#update'
+  delete '/logs' => 'logs#destroy'
 
   post '/pools' => 'pools#create'
 
