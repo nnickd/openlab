@@ -9,4 +9,8 @@ class Pool < ApplicationRecord
   def backers
     payments.length
   end
+
+  def creator
+    project.user
+  end
 end

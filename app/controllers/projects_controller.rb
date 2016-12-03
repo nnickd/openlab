@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @payment = Payment.new
     @pool = Pool.new
     @log = @project.logs.new
     @logs = @project.logs.order('created_at DESC')

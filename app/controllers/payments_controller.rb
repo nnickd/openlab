@@ -1,30 +1,38 @@
 class PaymentsController < ApplicationController
 
-
   def create
-    # Amount in cents
-    @amount = 500
+    @amount = params[:amount]
 
-    customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      source: params[:stripeToken]
-    )
+    @amount = @amount.delete('$').delete(',')
 
-    charge = Stripe::Charge.create(
-      customer: customer.id,
+    begin
+      @amount = Float(@amount).round(2)
+    rescue
+      flash[:error] = 'payment not completed. Please enter a valid amount in USD ($).'
+      redirect_to new_payment_path
+      return
+    end
+
+    @amount = (@amount * 100).to_i # Must be an integer!
+
+    if @amount < 500
+      flash[:error] = 'payment not completed. Donation amount must be at least $5.'
+      redirect_to new_payment_path
+      return
+    end
+
+    Stripe::Charge.create(
       amount: @amount,
-      description: 'Rails Stripe customer',
-      currency: 'usd'
+      currency: 'usd',
+      source: params[:stripeToken],
+      description: 'Custom donation'
     )
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to current_user
+    redirect_to new_payment_path
   end
 
-  private
 
-  def set_amount
-  end
 
 end
