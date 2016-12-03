@@ -24,6 +24,7 @@
         </div>
     </div>
     <div class="tabs-panel" id="panel3">
+        <%= render 'pools/form', pool: @pool, project: @project.id %>
         <%= render 'payments/checkout' %>
     </div>
 </div>

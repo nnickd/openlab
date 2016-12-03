@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @pool = Pool.new
     @log = @project.logs.new
     @logs = @project.logs.order('created_at DESC')
   end
@@ -42,7 +43,7 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def create_project_params
-    params.require(:project).permit(:title, :posted, :pool_id)
+    params.require(:project).permit(:title, :posted)
   end
 
   def update_project_params
