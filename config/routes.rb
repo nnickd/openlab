@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   # put '/logs' => 'logs#update'
   # delete '/logs' => 'logs#destroy'
 
+  post '/pools' => 'pools#create'
+
   resource :sessions
   resource :users
   resources :projects
-  resources :pools
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

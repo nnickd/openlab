@@ -15,8 +15,8 @@
 
 <%= f.label :goal %>
 <%= f.number_field :goal %>
-<%= f.label :datetime %>
-<%= datetime_select("f", "datetime") %>
+<%= f.label :deadline %>
+<%= date_select("f", "datetime") %>
 <%= f.hidden_field :project_id, value: project %>
 
 <%= f.submit 'Create pool', class: "expanded large button" %>

@@ -24,7 +24,12 @@
         </div>
     </div>
     <div class="tabs-panel" id="panel3">
+        <% if @project.pool %>
+        <%= render 'pools/info', pool: @project.pool %>
+        <% else %>
         <%= render 'pools/form', pool: @pool, project: @project.id %>
+        <% end %>
+
         <%= render 'payments/checkout' %>
     </div>
 </div>
