@@ -1,4 +1,4 @@
 <%= form_tag(projects_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search for projects" %>
-<%= submit_tag "Search", :name => nil %>
+<%= submit_tag "Search", :name => nil, class: "button expanded" %>
 <% end %>
