@@ -25,7 +25,6 @@ class PaymentsController < ApplicationController
   private
 
   def set_amount
-
   end
 
 end
