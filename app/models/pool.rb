@@ -6,6 +6,10 @@ class Pool < ApplicationRecord
     pledged.to_f / goal * 100
   end
 
+  def visual_progress
+    progress <= 100 ? progress : 100
+  end
+
   def backers
     payments.length
   end
