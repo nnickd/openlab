@@ -3,7 +3,7 @@ class Pool < ApplicationRecord
   has_many :payments
 
   def progress
-    pledged.to_f / goal
+    pledged.to_f / goal * 100
   end
 
   def backers
@@ -13,4 +13,5 @@ class Pool < ApplicationRecord
   def creator
     project.user
   end
+
 end

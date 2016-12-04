@@ -27,7 +27,7 @@
         <% if @project.pool %>
         <%= render 'pools/info', pool: @project.pool %>
         <% else %>
-        <%= render 'pools/form', pool: @pool, project: @project.id %>
+        <%= render 'pools/form', pool: @pool, project: @project.id if current_user == @project.user %>
         <% end %>
     </div>
 </div>

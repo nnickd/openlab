@@ -7,6 +7,4 @@
     <%= number_to_percentage pool.progress %>
 </div>
 
-<div class="callout medium-2">
-    <%= render 'payments/checkout', pool: @project.pool %>
-</div>
+<%= render 'payments/checkout', payment: @payment, pool: @project.pool if current_user != @project.user %>

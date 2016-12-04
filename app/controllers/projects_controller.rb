@@ -35,6 +35,11 @@ class ProjectsController < ApplicationController
 
   private
 
+  def users_project
+    return true if current_user == @project.user
+    false
+  end
+
   def set_project
     @project = Project.find(params[:id])
   end

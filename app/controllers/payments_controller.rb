@@ -1,8 +1,10 @@
 class PaymentsController < ApplicationController
 
   def create
-    # @payment = Payment.new(payment_params)
-    # @payment.save
+    @payment = Payment.new(amount: params[:amount], user_id: params[:user_id], pool_id: params[:pool_id])
+    @payment.save
+    total = @payment.amount + @payment.pool.pledged
+    @payment.pool.update(pledged: total)
 
     @amount = params[:amount]
     @amount = @amount.delete('$').delete(',')
@@ -38,7 +40,7 @@ class PaymentsController < ApplicationController
   private
 
   def payment_params
-    params.require(:payment).permit(:user_id, :pool_id, :amount)
+    params.require(:payment).permit(:amount, :user_id, :pool_id)
   end
 
 end
