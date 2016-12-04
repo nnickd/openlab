@@ -1,5 +1,4 @@
 class PaymentsController < ApplicationController
-
   def create
     @payment = Payment.new(amount: params[:amount], user_id: params[:user_id], pool_id: params[:pool_id])
     @payment.save
@@ -30,10 +29,12 @@ class PaymentsController < ApplicationController
       source: params[:stripeToken],
       description: 'Custom donation'
     )
+    redirect_to @payment.pool.project
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_payment_path
+
   end
 
   private
@@ -41,5 +42,4 @@ class PaymentsController < ApplicationController
   def payment_params
     params.require(:payment).permit(:amount, :user_id, :pool_id)
   end
-
 end

@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     return true if current_user
     return redirect_to root_path
   end
+
+  def refresh_page
+    redirect_back(fallback_location: :fallback_location)
+  end
 end

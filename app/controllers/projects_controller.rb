@@ -2,16 +2,12 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :update, :destroy]
 
   def index
-    @projects = Project.where(posted: true)
-    @projects = if params[:search]
-                  @projects.search(params[:search]).order('created_at DESC')
-                else
-                  @projects.order('created_at DESC')
-                end
+    @projects = Project.posted?.order('created_at DESC')
+    @projects = @projects.search(params[:search]) if params[:search]
   end
 
   def show
-    @payment = Payment.new 
+    @payment = Payment.new
     @pool = Pool.new unless @project.pool
     @log = @project.logs.new if current_user == @project.user
     @logs = @project.logs.order('created_at DESC')
@@ -19,18 +15,18 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(create_project_params)
-    return redirect_back(fallback_location: :fallback_location) unless @project.save
-    redirect_to @project, notice: 'Project was successfully created.'
+    return refresh_page unless @project.save
+    redirect_to @project, notice: "project successfully created"
   end
 
   def update
-    return redirect_back(fallback_location: :fallback_location) unless @project.update(update_project_params)
-    redirect_to @project, notice: 'Project was successfully updated.'
+    return refresh_page unless @project.update(update_project_params)
+    redirect_to @project, notice: "project successfully updated"
   end
 
   def destroy
     @project.destroy
-    redirect_to projects_url, notice: 'Project was successfully destroyed.'
+    redirect_to projects_url, notice: 'project successfully destroyed'
   end
 
   private

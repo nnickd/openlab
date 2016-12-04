@@ -9,7 +9,9 @@
         <div class="progress-meter" style="width: <%= pool.visual_progress%>%"></div>
     </div>
     Days Left
-    <%= pool.days_left %>
+    <%= pool.days_left %><br>
+    Number of backers
+    <%= pool.backers %>
 </div>
 
 <%= render 'payments/checkout', payment: @payment, pool: @project.pool if current_user != @project.user %>

@@ -11,7 +11,7 @@ class Pool < ApplicationRecord
   end
 
   def backers
-    payments.length
+    payments.map { |pay| pay.user.username }.uniq.length
   end
 
   def creator
@@ -27,4 +27,8 @@ class Pool < ApplicationRecord
     update(pledged: total)
   end
 
+  def failure?
+    return true if deadline - Time.now <= 0 && progress < 100
+    false
+  end
 end
