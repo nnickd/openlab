@@ -58,3 +58,5 @@ gem 'record_tag_helper'
 gem "rails-erd"
 
 gem 'stripe'
+
+gem "paperclip", "~> 5.0.0"
