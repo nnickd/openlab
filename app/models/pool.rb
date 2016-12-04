@@ -14,4 +14,8 @@ class Pool < ApplicationRecord
     project.user
   end
 
+  def days_left
+    ((deadline - Time.now) / 1.day).round
+  end
+
 end

@@ -4,7 +4,9 @@
     Pledged
     <%= number_to_currency pool.pledged %><br>
     Progress
-    <%= number_to_percentage pool.progress %>
+    <%= number_to_percentage pool.progress %><br>
+    Days Left
+    <%= pool.days_left %>
 </div>
 
 <%= render 'payments/checkout', payment: @payment, pool: @project.pool if current_user != @project.user %>
