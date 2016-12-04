@@ -31,4 +31,16 @@ class Pool < ApplicationRecord
     return true if deadline - Time.now <= 0 && progress < 100
     false
   end
+
+  def success?
+    return false if failure?
+    true if progress > 100
+    false
+  end
+
+  def still_in_progress?
+    return false if failure || success
+    true
+  end
+
 end

@@ -6,12 +6,14 @@
     Progress
     <%= number_to_percentage pool.progress, precision: 2 %><br>
     <div class="success progress">
-        <div class="progress-meter" style="width: <%= pool.visual_progress%>%"></div>
+        <div class="progress-meter" style="width: <%= pool.visual_progress %>%"></div>
     </div>
     Days Left
     <%= pool.days_left %><br>
     Number of backers
-    <%= pool.backers %>
+    <%= pool.backers %><br>
+    Is it a success?
+    <%= pool.success? %>
 </div>
 
-<%= render 'payments/checkout', payment: @payment, pool: @project.pool if current_user != @project.user %>
+<%= render 'payments/checkout', payment: @payment, pool: @project.pool %>
