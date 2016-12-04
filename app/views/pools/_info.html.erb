@@ -1,9 +1,12 @@
 <div class="callout medium-2">
-  Goal
-  <%= number_to_currency pool.goal %><br>
-  Progress
-  <%= number_to_percentage pool.progress %><br>
-  Pledged
-  <%= number_to_currency pool.pledged %>
-  <%= render 'payments/checkout' %>
+    Goal
+    <%= number_to_currency pool.goal %><br>
+    Pledged
+    <%= number_to_currency pool.pledged %><br>
+    Progress
+    <%= number_to_percentage pool.progress %>
+</div>
+
+<div class="callout medium-2">
+    <%= render 'payments/checkout', pool: @project.pool %>
 </div>

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   def show
     @project = current_user.projects.new
-    @pool = Pool.new
     @projects = current_user.projects
     @logs = current_user.logs
   end

@@ -8,6 +8,6 @@ class PoolsController < ApplicationController
   private
 
   def pool_params
-    params.require(:pool).permit(:goal, :deadline, :project_id)
+    params.require(:pool).permit(:goal, :pledged, :deadline, :project_id)
   end
 end

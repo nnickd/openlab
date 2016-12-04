@@ -1,8 +1,10 @@
 class PaymentsController < ApplicationController
 
   def create
-    @amount = params[:amount]
+    # @payment = Payment.new(payment_params)
+    # @payment.save
 
+    @amount = params[:amount]
     @amount = @amount.delete('$').delete(',')
 
     begin
@@ -33,6 +35,10 @@ class PaymentsController < ApplicationController
     redirect_to new_payment_path
   end
 
+  private
 
+  def payment_params
+    params.require(:payment).permit(:user_id, :pool_id, :amount)
+  end
 
 end
