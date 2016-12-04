@@ -3,11 +3,10 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(amount: params[:amount], user_id: params[:user_id], pool_id: params[:pool_id])
     @payment.save
-    total = @payment.amount + @payment.pool.pledged
-    @payment.pool.update(pledged: total)
 
-    @amount = params[:amount]
-    @amount = @amount.delete('$').delete(',')
+    @payment.pool.add_payment(@payment)
+    
+    @amount = params[:amount].delete('$').delete(',')
 
     begin
       @amount = Float(@amount).round(2)

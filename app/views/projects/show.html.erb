@@ -10,6 +10,9 @@
     <li class="tabs-title">
         <a href="#panel3">Fund</a>
     </li>
+    <li class="tabs-title">
+        <a href="#panel4">Payments</a>
+    </li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="example-tabs">
@@ -29,5 +32,8 @@
         <% else %>
         <%= render 'pools/form', pool: @pool, project: @project.id if current_user == @project.user %>
         <% end %>
+    </div>
+    <div class="tabs-panel" id="panel4">
+        <%= render 'ledger', payments: @project.pool.payments %>
     </div>
 </div>

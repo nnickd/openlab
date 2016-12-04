@@ -7,6 +7,9 @@
     <li class="tabs-title">
         <a href="#panel2">Created Projects</a>
     </li>
+    <li class="tabs-title">
+        <a href="#panel3">My payments</a>
+    </li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="example-tabs">
@@ -15,5 +18,8 @@
     </div>
     <div class="tabs-panel" id="panel2">
         <%= render 'projects/thumbs', projects: @projects %>
+    </div>
+    <div class="tabs-panel" id="panel3">
+        <%= render 'ledger', payments: @payments%>
     </div>
 </div>

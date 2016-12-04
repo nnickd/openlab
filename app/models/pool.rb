@@ -22,4 +22,9 @@ class Pool < ApplicationRecord
     ((deadline - Time.now) / 1.day).round
   end
 
+  def add_payment(payment)
+    total = payment.amount + pledged
+    update(pledged: total)
+  end
+
 end

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @project = current_user.projects.new
     @projects = current_user.projects
     @logs = current_user.logs
+    @payments = current_user.payments
   end
 
   def create
