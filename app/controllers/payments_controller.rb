@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
     @payment.save
 
     @payment.pool.add_payment(@payment)
-    
+
     @amount = params[:amount].delete('$').delete(',')
 
     begin

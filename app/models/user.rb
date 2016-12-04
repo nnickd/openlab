@@ -4,4 +4,5 @@ class User < ApplicationRecord
   has_many :logs, through: :projects
   has_many :payments
   validates :username, presence: true
+
 end
