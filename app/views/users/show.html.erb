@@ -7,12 +7,6 @@
     <li class="tabs-title">
         <a href="#panel2">Created Projects</a>
     </li>
-    <li class="tabs-title">
-        <a href="#panel3">Posted Logs</a>
-    </li>
-    <li class="tabs-title">
-        <a href="#panel4">Comments</a>
-    </li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="example-tabs">
@@ -21,12 +15,5 @@
     </div>
     <div class="tabs-panel" id="panel2">
         <%= render 'projects/thumbs', projects: @projects %>
-    </div>
-    <div class="tabs-panel" id="panel3">
-      <div class="medium-2">
-        <%= render 'logs/list', logs: @logs %>
-      </div>
-    </div>
-    <div class="tabs-panel" id="panel4">
     </div>
 </div>
