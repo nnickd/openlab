@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @payment = Payment.new
+    @payment = Payment.new 
     @pool = Pool.new unless @project.pool
     @log = @project.logs.new if current_user == @project.user
     @logs = @project.logs.order('created_at DESC')
