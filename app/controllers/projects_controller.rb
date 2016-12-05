@@ -8,12 +8,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @image = Image.new
-    @images = @project.images
     @payment = Payment.new
     @pool = Pool.new unless @project.pool
-    @log = @project.logs.new if current_user == @project.user
+    @log = @project.logs.new 
     @logs = @project.logs.order('created_at DESC')
+    @image = Image.new
+    @images = @project.images
   end
 
   def create
