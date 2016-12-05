@@ -34,7 +34,7 @@ class Pool < ApplicationRecord
 
   def success?
     return false if failure?
-    true if progress > 100
+    return true if progress > 100
     false
   end
 
