@@ -3,7 +3,8 @@ class Project < ApplicationRecord
   has_one :pool
   has_many :logs, dependent: :destroy
   has_many :images
-  
+  has_one :video
+
   validates :title, presence: true, uniqueness: true
 
   scope :posted?, -> { where(posted: true) }

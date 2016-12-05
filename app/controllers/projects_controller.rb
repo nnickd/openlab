@@ -10,10 +10,11 @@ class ProjectsController < ApplicationController
   def show
     @payment = Payment.new
     @pool = Pool.new unless @project.pool
-    @log = @project.logs.new 
+    @log = @project.logs.new
     @logs = @project.logs.order('created_at DESC')
     @image = Image.new
     @images = @project.images
+    @video = Video.new
   end
 
   def create
