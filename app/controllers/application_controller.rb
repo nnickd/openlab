@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :create_user
+  helper_method :current_user, :create_user, :users_project?
   layout :decide_layout
 
   def current_user
@@ -22,5 +22,9 @@ class ApplicationController < ActionController::Base
 
   def refresh_page
     redirect_back(fallback_location: :fallback_location)
+  end
+
+  def users_project?
+    current_user == @project.user
   end
 end

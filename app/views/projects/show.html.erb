@@ -22,11 +22,11 @@
     <div class="tabs-panel is-active" id="panel1">
         <%= render 'info' %>
         <%= render 'edit-form', project: @project if current_user == @project.user %>
-        <%= render 'videos/form', video: @video, project: @project if current_user == @project.user %>
+        <%= render 'videos/form', video: @video, project: @project if users_project? %>
     </div>
     <div class="tabs-panel" id="panel2">
         <div class="medium-2">
-            <%= render 'logs/form', log: @log, project: @project if current_user == @project.user %>
+            <%= render 'logs/form', log: @log, project: @project if users_project? %>
             <%= render 'logs/list', logs: @logs %>
         </div>
     </div>
@@ -35,14 +35,14 @@
         <%= render 'pools/info', pool: @project.pool %>
         <%= render 'payments/checkout', payment: @payment, pool: @project.pool %>
     <% else %>
-        <%= render 'pools/form', pool: @pool, project: @project.id if current_user == @project.user %>
+        <%= render 'pools/form', pool: @pool, project: @project.id if users_project? %>
         <% end %>
     </div>
     <div class="tabs-panel" id="panel4">
         <%= render 'ledger', payments: @project.pool.payments if @project.pool %>
     </div>
     <div class="tabs-panel" id="panel5">
-        <%= render 'images/form', image: @image, project: @project if current_user == @project.user%>
+        <%= render 'images/form', image: @image, project: @project if users_project? %>
         <%= render 'images/list', images: @images %>
     </div>
 </div>
