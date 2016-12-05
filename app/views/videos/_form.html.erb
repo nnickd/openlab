@@ -3,7 +3,7 @@
 <%= form_for(video) do |f| %>
 <%= f.text_field :youtube_link, placeholder: "Youtube Link", class: "text-center"  %>
 <%= f.hidden_field :project_id, value: project.id %>
-<%= f.submit 'post video', class: "expanded large button" %>
+<%= f.submit class: "expanded large button" %>
 <% end %>
 
 </div>

@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   post '/pools' => 'pools#create'
   post '/images' => 'images#create'
 
-  post '/videos' => 'videos#create'
-  patch '/videos' => 'videos#update'
-  put '/videos' => 'videos#update'
-  delete '/videos' => 'videos#destroy'
+  # post '/videos' => 'videos#create'
+  # patch '/videos' => 'videos#update'
+  # put '/videos' => 'videos#update'
+  # delete '/videos' => 'videos#destroy'
+
+  resources :videos, except: [:index, :show]
 
   resources :projects
   resource :sessions

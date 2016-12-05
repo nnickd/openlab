@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     @logs = @project.logs.order('created_at DESC')
     @image = Image.new
     @images = @project.images
-    @video = Video.new
+    @video = @project.video ? @project.video : Video.new
   end
 
   def create
