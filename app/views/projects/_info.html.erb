@@ -1,7 +1,7 @@
 <div class="columns">
 
 <div class="row align-center">
-  <%= youtube_frame @project.video.youtube_link %>
+  <%= youtube_frame @project.video.youtube_link if @project.video %>
 </div>
 
 <div class="columns">
