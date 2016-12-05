@@ -22,7 +22,7 @@
     <div class="tabs-panel is-active" id="panel1">
         <%= render 'info' %>
         <%= render 'edit-form', project: @project if current_user == @project.user %>
-        <%= render 'videos/form', video: @video, project: @project %>
+        <%= render 'videos/form', video: @video, project: @project if current_user == @project.user %>
     </div>
     <div class="tabs-panel" id="panel2">
         <div class="medium-2">
