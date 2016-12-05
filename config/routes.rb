@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   post '/payments' => 'payments#create'
   post '/pools' => 'pools#create'
+  post '/images' => 'images#create'
 
   resources :projects
   resource :sessions

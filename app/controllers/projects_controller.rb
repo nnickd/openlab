@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @image = Image.new
+    @images = @project.images
     @payment = Payment.new
     @pool = Pool.new unless @project.pool
     @log = @project.logs.new if current_user == @project.user

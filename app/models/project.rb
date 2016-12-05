@@ -6,6 +6,7 @@ class Project < ApplicationRecord
   has_one :pool
   has_many :logs, dependent: :destroy
   validates :title, presence: true, uniqueness: true
+  has_many :images
 
   scope :posted?, -> { where(posted: true) }
 

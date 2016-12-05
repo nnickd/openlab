@@ -13,6 +13,9 @@
     <li class="tabs-title">
         <a href="#panel4">Payments</a>
     </li>
+    <li class="tabs-title">
+        <a href="#panel5">Images</a>
+    </li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="example-tabs">
@@ -30,11 +33,15 @@
         <% if @project.pool %>
         <%= render 'pools/info', pool: @project.pool %>
         <%= render 'payments/checkout', payment: @payment, pool: @project.pool %>
-        <% else %>
+    <% else %>
         <%= render 'pools/form', pool: @pool, project: @project.id if current_user == @project.user %>
         <% end %>
     </div>
     <div class="tabs-panel" id="panel4">
         <%= render 'ledger', payments: @project.pool.payments if @project.pool %>
+    </div>
+    <div class="tabs-panel" id="panel5">
+        <%= render 'images/form', image: @image, project: @project if current_user == @project.user%>
+        <%= render 'images/list', images: @images %>
     </div>
 </div>
