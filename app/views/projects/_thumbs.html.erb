@@ -2,10 +2,18 @@
     <% projects.each do |project| %>
 
     <div class="callout thumb">
-        <%= project.user.username %>
-        <%= project.title %>
-        <%= project.about %>
-        <%= link_to 'Show', project, class: "button" %>
+        <div>
+            <%= image_tag project.image.url %>
+        </div>
+        <div class="">
+            <%= project.user.username %>
+            <%= project.title %>
+            <%= project.about %>
+            <%= link_to 'Show', project, class: "button" %>
+        </div>
+        <div class="">
+          <%= render 'pools/thumb', pool: project.pool if project.pool %>
+        </div>
     </div>
 
     <% end %>

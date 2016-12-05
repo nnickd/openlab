@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :update, :destroy]
 
   def index
+    # @payment = Payment.new
     @projects = Project.posted?.order('created_at DESC')
     @projects = @projects.search(params[:search]) if params[:search]
   end
@@ -40,6 +41,6 @@ class ProjectsController < ApplicationController
   end
 
   def update_project_params
-    params.require(:project).permit(:title, :about, :context, :significance, :goals, :posted)
+    params.require(:project).permit(:title, :about, :context, :significance, :goals, :image, :video, :posted)
   end
 end
