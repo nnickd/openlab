@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204233824) do
+ActiveRecord::Schema.define(version: 20161205000017) do
 
   create_table "logs", force: :cascade do |t|
     t.string   "title"
@@ -48,10 +48,14 @@ ActiveRecord::Schema.define(version: 20161204233824) do
     t.text     "context"
     t.text     "significance"
     t.text     "goals"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.boolean  "posted"
     t.string   "video"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
