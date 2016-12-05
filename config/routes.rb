@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'images/create'
+
   root 'sessions#home'
 
   post '/logs' => 'logs#create'
