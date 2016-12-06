@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   def create
-    @payment = Payment.new(amount: params[:amount], user_id: params[:user_id], pool_id: params[:pool_id])
+    @payment = Payment.new(payment_params)
+    @payment.amount = params[:amount].to_i
     @payment.save
 
     @payment.pool.add_payment(@payment)
@@ -34,12 +35,11 @@ class PaymentsController < ApplicationController
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_payment_path
-
   end
 
   private
 
   def payment_params
-    params.require(:payment).permit(:amount, :user_id, :pool_id)
+    params.require(:payment).permit(:user_id, :pool_id)
   end
 end
