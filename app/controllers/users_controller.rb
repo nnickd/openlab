@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 
   def projects_logs_payments
     @projects = current_user.projects
-    @logs = current_user.logs
     @payments = current_user.payments
   end
 end

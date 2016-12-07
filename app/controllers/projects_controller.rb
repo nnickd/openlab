@@ -17,13 +17,13 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(create_project_params)
+    @project = current_user.projects.new(project_params)
     return refresh_page unless @project.save
     redirect_to @project, notice: "project successfully created"
   end
 
   def update
-    return refresh_page unless @project.update(update_project_params)
+    return refresh_page unless @project.update(project_params)
     redirect_to @project, notice: "project successfully updated"
   end
 
@@ -38,11 +38,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
-  def create_project_params
+  def project_params
     params.require(:project).permit(:title, :posted)
   end
 
-  def update_project_params
-    params.require(:project).permit(:title, :posted)
-  end
 end

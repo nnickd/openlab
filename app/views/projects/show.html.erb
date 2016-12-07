@@ -34,7 +34,7 @@
         <% if @project.pool %>
         <%= render 'pools/info', pool: @project.pool %>
         <%= render 'payments/checkout', payment: @payment, pool: @project.pool %>
-    <% else %>
+        <% else %>
         <%= render 'pools/form', pool: @pool, project: @project.id if users_project? %>
         <% end %>
     </div>

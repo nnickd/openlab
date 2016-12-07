@@ -15,7 +15,12 @@
     <% end %>
     <%= f.label :title %>
     <%= f.text_field :title %>
+    <% if project.postable? %>
+    <%= f.label :posted %>
+    <%= f.text_field :posted %>
+    <% else %>
     <%= f.hidden_field :posted, value: false %>
+    <% end %>
     <%= f.submit 'Create project', class: "expanded large button" %>
     <% end %>
 </div>
