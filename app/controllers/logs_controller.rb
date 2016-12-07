@@ -2,15 +2,13 @@ class LogsController < ApplicationController
   before_action :set_log, only: [:update, :destroy]
   def create
     @log = Log.new(log_params)
-    return redirect_to @log.project, notice: 'Log was successfully posted.' if @log.save
-    redirect_to @log.project
+    return redirect_to @log.project unless @log.save
+    redirect_to @log.project, notice: 'Log was successfully posted.' 
   end
 
   def update
-    if @log.update(update_log_params)
-      return redirect_to @log.project, notice: 'Log was successfully updated.' if @log.save
-      redirect_to @log.project
-    end
+      return redirect_to @log.project unless @log.update(update_log_params)
+      redirect_to @log.project notice: 'Log was successfully updated.'
   end
 
   def destroy
