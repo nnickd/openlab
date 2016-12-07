@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @content = @project.contents.new
     @payment = Payment.new
     @pool = Pool.new unless @project.pool
     @log = @project.logs.new

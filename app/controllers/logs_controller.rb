@@ -3,7 +3,7 @@ class LogsController < ApplicationController
   def create
     @log = Log.new(log_params)
     return redirect_to @log.project unless @log.save
-    redirect_to @log.project, notice: 'Log was successfully posted.' 
+    redirect_to @log.project, notice: 'Log was successfully posted.'
   end
 
   def update
@@ -19,10 +19,10 @@ class LogsController < ApplicationController
   private
 
   def set_log
-    @log = Log.find_by_title(params[:id])
+    @log = Log.find(params[:id])
   end
 
   def log_params
-    params.require(:log).permit(:title, :body, :user_id, :project_id)
+    params.require(:log).permit(:title, :body, :project_id)
   end
 end

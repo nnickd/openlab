@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :videos, except: [:index, :show]
   resources :logs, except: [:index, :show]
+  resources :contents, except: [:index, :show]
 
   resources :projects
   resource :sessions
