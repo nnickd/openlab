@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_one :pool, dependent: :destroy
+  has_one :pool
   has_many :logs, dependent: :destroy
   has_many :images, dependent: :destroy
   has_one :video, dependent: :destroy
