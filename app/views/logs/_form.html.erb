@@ -3,7 +3,6 @@
 <%= form_for(log) do |f| %>
 <%= f.text_field :title, placeholder: "title", class: "text-center"  %>
 <%= f.text_area :body, placeholder: "body", class: "text-center"  %>
-<%= f.hidden_field :user_id, value: current_user.id %>
 <%= f.hidden_field :project_id, value: project.id %>
 
 <%= f.submit 'post log', class: "expanded large button" %>
