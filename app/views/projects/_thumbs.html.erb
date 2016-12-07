@@ -1,26 +1,29 @@
 <div class="column">
     <% projects.each_slice(3) do |project| %>
 
-    <div class="row small-12 align-spaced">
+    <div class="row align-spaced">
 
         <% project.each do |pro| %>
 
-        <section class="column medium-2 callout" id=<%= pro.id.to_s %>>
+        <section class="column small-3" id=<%= pro.id.to_s %>>
 
-            <div class="row pic">
-                <%= image_tag 'galaxy.gif' %>
+            <div class="row small">
+                <%= image_tag 'galaxy.jpg' %>
             </div>
 
-            <div class="row content">
-                <%= pro.title %>
+            <div class="row callout">
+                <h3>
+                    <%= pro.title %>
+                </h3>
             </div>
 
-            <div class="row callout pool">
+            <div class="row callout">
                 <%= render 'pools/thumb', pool: pro.pool %>
             </div>
 
         </section>
         <% end %>
+
     </div>
     <% end %>
 
