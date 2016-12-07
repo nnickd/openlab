@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207195418) do
+ActiveRecord::Schema.define(version: 20161207195538) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "science"
@@ -64,6 +64,13 @@ ActiveRecord::Schema.define(version: 20161207195418) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "project_id"
+  end
+
+  create_table "project_categories", id: false, force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_project_categories_on_category_id"
+    t.index ["project_id"], name: "index_project_categories_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
