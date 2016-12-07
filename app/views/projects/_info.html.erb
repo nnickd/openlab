@@ -1,22 +1,18 @@
-<div class="columns">
+<div class="row align-center">
+    <%= youtube_frame @project.video.youtube_link if @project.video %>
+</div>
 
 <div class="row align-center">
-  <%= youtube_frame @project.video.youtube_link if @project.video %>
-</div>
-
-<div class="columns">
-<p>
-  <strong>User:</strong>
-  <%= @project.user.username %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-<p>
-  <strong>Posted:</strong>
-  <%= @project.posted %>
-</p>
-</div>
-
+    <p>
+        <strong>User:</strong>
+        <%= @project.user.username %>
+    </p>
+    <p>
+        <strong>Title:</strong>
+        <%= @project.title %>
+    </p>
+    <p>
+        <strong>Posted:</strong>
+        <%= @project.posted %>
+    </p>
 </div>

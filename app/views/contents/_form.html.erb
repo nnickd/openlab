@@ -1,12 +1,13 @@
-<!-- <div class="reveal" id="create-content" data-reveal> -->
+<div class="reveal" id="create-content" data-reveal>
 
 <%= form_for(content) do |f| %>
 <%= f.text_area :body, placeholder: "body", class: "text-center"  %>
 <%= f.hidden_field :project_id, value: project.id %>
+<%= f.hidden_field :kind, value: kind %>
 
-<%= f.submit 'post content', class: "button" %>
+<%= f.submit 'post', class: "button expanded large" %>
 <% end %>
 
-<!-- </div> -->
+</div>
 
-<!-- <a data-open="create-content" class="button expanded">create content</a> -->
+<a data-open="create-content" class="button"><%= kind %></a>

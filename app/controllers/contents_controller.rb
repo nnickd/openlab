@@ -23,6 +23,6 @@ class ContentsController < ApplicationController
   end
 
   def content_params
-    params.require(:content).permit(:body, :project_id)
+    params.require(:content).permit(:body, :project_id, :kind)
   end
 end

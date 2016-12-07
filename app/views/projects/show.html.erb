@@ -20,11 +20,12 @@
 
 <div class="tabs-content" data-tabs-content="example-tabs">
     <div class="tabs-panel is-active" id="panel1">
-        <%= render 'info' %>
-        <%= render 'contents/list', contents: @project.contents %>
-        <%= render 'contents/project-content'%>
-        <%= render 'form', project: @project, crud: 'Edit project' if users_project? %>
-        <%= render 'videos/form', video: @video, project: @project if users_project? %>
+        <div class="align-center column">
+            <%= render 'info' %>
+            <%= render 'form', project: @project, crud: 'Edit project' if users_project? %>
+            <%= render 'videos/form', video: @video, project: @project if users_project? %>
+            <%= render 'contents/project-content'%>
+        </div>
     </div>
     <div class="tabs-panel" id="panel2">
         <div class="medium-2">
@@ -36,7 +37,7 @@
         <% if @project.pool %>
         <%= render 'pools/info', pool: @project.pool %>
         <%= render 'payments/checkout', payment: @payment, pool: @project.pool %>
-        <% else %>
+    <% else %>
         <%= render 'pools/form', pool: @pool, project: @project.id if users_project? %>
         <% end %>
     </div>
