@@ -1,4 +1,4 @@
-<div class="reveal" id="create-project" data-reveal>
+<div class="reveal" id="crud-project" data-reveal>
     <%= form_for(project) do |f| %>
 
     <% if project.errors.any? %>
@@ -26,7 +26,7 @@
 </div>
 
 <% if crud == 'Create project' %>
-<a data-open="create-project" class="button expanded">Start a new project</a>
+<a data-open="crud-project" class="button expanded">Start a new project</a>
 <% elsif crud == 'Edit project' %>
-<a data-open="create-project" class="button">Edit project</a>
+<a data-open="crud-project" class="button">Edit project</a>
 <% end %>
