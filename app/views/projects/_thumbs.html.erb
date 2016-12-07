@@ -1,17 +1,28 @@
-<div class="row" id="thumb-box">
-    <% projects.each do |project| %>
+<div class="column">
+    <% projects.each_slice(3) do |project| %>
 
-    <div class="callout thumb">
-        <div class="">
-            <%= project.user.username %>
-            <%= project.title %>
-            <%= project.about %>
-            <%= link_to 'Show', project, class: "button" %>
+    <div class="row small-12 align-spaced">
+
+        <% project.each do |pro| %>
+
+        <div class="column shrink callout">
+
+            <div class="row callout"></div>
+
+            <div class="row callout">
+                <%= pro.user.username %>
+                <%= pro.title %>
+                <%= pro.about %>
+                <%= link_to 'Show', pro, class: "button" %>
+            </div>
+
+            <div class="row callout">
+                <%= render 'pools/thumb', pool: pro.pool if pro.pool %>
+            </div>
+
         </div>
-        <div class="">
-          <%= render 'pools/thumb', pool: project.pool if project.pool %>
-        </div>
+        <% end %>
     </div>
-
     <% end %>
+
 </div>
