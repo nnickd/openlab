@@ -21,8 +21,12 @@
     <% else %>
     <%= f.hidden_field :posted, value: false %>
     <% end %>
-    <%= f.submit 'Create project', class: "expanded large button" %>
+    <%= f.submit crud, class: "expanded large button" %>
     <% end %>
 </div>
 
+<% if crud == 'Create project' %>
 <a data-open="create-project" class="button expanded">Start a new project</a>
+<% elsif crud == 'Edit project' %>
+<a data-open="create-project" class="button">Edit project</a>
+<% end %>
