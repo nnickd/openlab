@@ -12,4 +12,8 @@ class Project < ApplicationRecord
   def self.search(term)
     where(['title LIKE ?', "%#{term}%"])
   end
+
+  def postable?
+    pool && about && context && significance && goals ? true : false
+  end
 end

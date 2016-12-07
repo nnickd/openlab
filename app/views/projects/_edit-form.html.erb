@@ -28,8 +28,10 @@
     <%= f.label :goals %>
     <%= f.text_area :goals %>
 
+    <% if project.postable? %>
     <%= f.label :posted %>
     <%= f.text_field :posted %>
+    <% end %>
 
     <%= f.submit 'edit project', class: 'button expanded' %>
 

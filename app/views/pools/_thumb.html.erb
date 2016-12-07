@@ -1,12 +1,11 @@
 <div class="columns row">
     Goal
-    <%= number_to_currency pool.goal %><br>
-    Progress
+    <%= number_to_currency pool.goal if pool%><br>
     <div class="success progress">
-        <div class="progress-meter" style="width: <%= pool.visual_progress %>%"></div>
+        <div class="progress-meter" style="width: <%= pool ? pool.visual_progress : 0 %>%"></div>
     </div>
     Days Left
-    <%= pool.days_left %><br>
+    <%= pool.days_left if pool %>  |
     Number of backers
-    <%= pool.backers %><br>
+    <%= pool.backers if pool %><br>
 </div>

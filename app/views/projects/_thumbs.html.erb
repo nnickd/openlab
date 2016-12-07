@@ -5,22 +5,21 @@
 
         <% project.each do |pro| %>
 
-        <div class="column shrink callout">
+        <section class="column medium-2 callout" id=<%= pro.id.to_s %>>
 
-            <div class="row callout"></div>
+            <div class="row pic">
+                <%= image_tag 'galaxy.gif' %>
+            </div>
 
-            <div class="row callout">
-                <%= pro.user.username %>
+            <div class="row content">
                 <%= pro.title %>
-                <%= pro.about %>
-                <%= link_to 'Show', pro, class: "button" %>
             </div>
 
-            <div class="row callout">
-                <%= render 'pools/thumb', pool: pro.pool if pro.pool %>
+            <div class="row callout pool">
+                <%= render 'pools/thumb', pool: pro.pool %>
             </div>
 
-        </div>
+        </section>
         <% end %>
     </div>
     <% end %>
