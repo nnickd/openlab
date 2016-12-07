@@ -14,6 +14,6 @@ class Project < ApplicationRecord
   end
 
   def postable?
-    pool && about && context && significance && goals ? true : false
+    pool ? true : false
   end
 end

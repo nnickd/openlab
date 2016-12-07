@@ -16,18 +16,6 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
 
-    <%= f.label :about %>
-    <%= f.text_area :about %>
-
-    <%= f.label :context %>
-    <%= f.text_area :context %>
-
-    <%= f.label :significance %>
-    <%= f.text_area :significance %>
-
-    <%= f.label :goals %>
-    <%= f.text_area :goals %>
-
     <% if project.postable? %>
     <%= f.label :posted %>
     <%= f.text_field :posted %>
