@@ -3,13 +3,16 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    return redirect_to @category.project unless @category.save
-    redirect_to @category.project, notice: 'Category was successfully posted.'
+    if @category.save
+      @categories_projects = CategoriesProjects.new(category_id: @category.id, project_id: params[:project_id].to_i)
+      return redirect_to @categories_projects.project, notice: 'Category was successfully posted.' if @categories_projects.save
+    end
+    redirect_to refresh_page
   end
 
   def update
-      return redirect_to @category.project unless @category.update(update_category_params)
-      redirect_to @category.project notice: 'Category was successfully updated.'
+    return redirect_to @category.project unless @category.update(update_category_params)
+    redirect_to @category.project notice: 'Category was successfully updated.'
   end
 
   def destroy
@@ -24,6 +27,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:science, :project_id)
+    params.require(:category).permit(:science)
   end
 end

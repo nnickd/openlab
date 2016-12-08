@@ -6,10 +6,8 @@ class Project < ApplicationRecord
   has_one :video, dependent: :destroy
   has_many :contents, dependent: :destroy
 
-  has_many :category_projects
-  has_many :categories, through: :category_projects 
-
-  has_and_belongs_to_many :categories
+  has_many :categories_projects
+  has_many :categories, through: :categories_projects
 
   validates :title, presence: true, uniqueness: true
 
