@@ -24,7 +24,7 @@
             <%= render 'info' %>
             <%= render 'form', project: @project, crud: 'Edit project' if users_project? %>
             <%= render 'videos/form', video: @video, project: @project if users_project? %>
-            <%= render 'contents/project-content'%>
+            <%= render 'contents/project-content', content: @content %>
         </div>
     </div>
     <div class="tabs-panel" id="panel2">
