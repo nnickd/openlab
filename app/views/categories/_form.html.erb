@@ -1,23 +1,10 @@
-<% categories = [['Mathematics', 'Mathematics'], ['Engineering', 'Engineering'],
-['Data Science', 'Data Science'], ['Computer Science'], ['Biology'], ['Chemistry'],
-['Social Science'], ['Economics'], ['Ecology'], ['Physics'], ['Materials Science'],
-['Earth Science'], ['Education'], ['Paleontology'], ['Medicine'], ['Neuroscience'],
-['Psychology'], ['Anthropology'], ['Art and Design'], ['Political Science']] %>
-
 <div class="row align-center medium-6">
 
+    <%= form_for([project, category_project]) do |f| %>
 
-<%= form_for(category) do |f| %>
-<%= hidden_field_tag :project_id, project.id %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :science) %>
 
-<%= f.select :science do %>
-<% categories.each do |c| %>
-<%= content_tag(:option, c.first, value: c.last) %>
-<% end %>
-<% end %>
-
-<%= f.submit 'add category', class: "expanded large button" %>
-<% end %>
-
+    <%= f.submit 'add category', class: "expanded large button" %>
+    <% end %>
 
 </div>

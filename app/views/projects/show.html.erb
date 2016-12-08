@@ -22,7 +22,7 @@
     <div class="tabs-panel is-active" id="panel1">
         <div class="align-center column">
             <%= render 'info' %>
-            <%= render 'categories/form', category: @category, project: @project %>
+            <%= render 'categories/form', category_project: @category_project, project: @project %>
             <%= render 'form', project: @project, crud: 'Edit project' if users_project? %>
             <%= render 'videos/form', video: @video, project: @project if users_project? %>
             <%= render 'contents/project-content', content: @content %>
