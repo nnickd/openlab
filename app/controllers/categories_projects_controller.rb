@@ -1,0 +1,2 @@
+class CategoriesProjectsController < ApplicationController
+end
