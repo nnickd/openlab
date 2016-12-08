@@ -1,8 +1,8 @@
 class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
-    return redirect_to @image.project, notice: 'Image was successfully posted.' if @image.save
-    redirect_to @image.project
+    return redirect_to @image.project unless @image.save
+    redirect_to @image.project, notice: 'Image was successfully posted.'
   end
 
   private

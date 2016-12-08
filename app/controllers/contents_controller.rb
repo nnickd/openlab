@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:update, :destroy]
+  
   def create
     @content = Content.new(content_params)
     return redirect_to @content.project unless @content.save

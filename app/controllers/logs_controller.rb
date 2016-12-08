@@ -1,5 +1,6 @@
 class LogsController < ApplicationController
   before_action :set_log, only: [:update, :destroy]
+  
   def create
     @log = Log.new(log_params)
     return redirect_to @log.project unless @log.save

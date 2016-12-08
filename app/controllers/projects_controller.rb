@@ -7,12 +7,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @payment = Payment.new
-    @pool = Pool.new
+    @video = @project.video ? @project.video : Video.new
     @content = @project.contents.new
     @image = @project.images.new
     @log = @project.logs.new
-    @video = @project.video ? @project.video : Video.new
+    @payment = Payment.new
+    @pool = Pool.new
   end
 
   def create
