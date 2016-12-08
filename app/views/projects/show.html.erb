@@ -29,8 +29,8 @@
     </div>
     <div class="tabs-panel" id="panel2">
         <div class="medium-2">
-            <%= render 'logs/form', log: @log, project: @project if users_project? %>
-            <%= render 'logs/list', logs: @logs %>
+            <%= render 'logs/form', log: @log if users_project? %>
+            <%= render 'logs/list', logs: @project.logs %>
         </div>
     </div>
     <div class="tabs-panel" id="panel3">
@@ -45,7 +45,7 @@
         <%= render 'ledger', payments: @project.pool.payments if @project.pool %>
     </div>
     <div class="tabs-panel" id="panel5">
-        <%= render 'images/form', image: @image, project: @project if users_project? %>
-        <%= render 'images/list', images: @images %>
+        <%= render 'images/form', image: @image if users_project? %>
+        <%= render 'images/list', images: @project.images %>
     </div>
 </div>

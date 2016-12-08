@@ -7,13 +7,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @content = @project.contents.new
     @payment = Payment.new
-    @pool = Pool.new unless @project.pool
+    @pool = Pool.new
+    @content = @project.contents.new
+    @image = @project.images.new
     @log = @project.logs.new
-    @logs = @project.logs.order('created_at DESC')
-    @image = Image.new
-    @images = @project.images
     @video = @project.video ? @project.video : Video.new
   end
 
