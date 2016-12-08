@@ -1,38 +1,47 @@
-<div class="column medium-4">
-    <div class="callout">
-        <h3>About</h3>
-        <% if @project.contents.find_by(kind: 'about') %>
-        <%= @project.contents.find_by(kind: 'about').body %>
-        <% elsif users_project? %>
-        <%= render 'contents/form', content: content, kind: 'about' %>
-        <% end %>
+<div class="column">
+
+    <div class="row align-spaced">
+
+        <div class="callout medium-4 column">
+            <h3>About</h3>
+            <% if @project.contents.find_by(kind: 'about') %>
+            <%= @project.contents.find_by(kind: 'about').body %>
+            <% elsif users_project? %>
+            <%= render 'contents/form', content: content, kind: 'about' %>
+            <% end %>
+        </div>
+
+        <div class="callout medium-4 column">
+            <h3>Context</h3>
+            <% if @project.contents.find_by(kind: 'context') %>
+            <%= @project.contents.find_by(kind: 'context').body %>
+            <% elsif users_project? %>
+            <%= render 'contents/form', content: content, kind: 'context' %>
+            <% end %>
+        </div>
+
     </div>
 
-    <div class="callout">
-        <h3>Context</h3>
-        <% if @project.contents.find_by(kind: 'context') %>
-        <%= @project.contents.find_by(kind: 'context').body %>
-        <% elsif users_project? %>
-        <%= render 'contents/form', content: content, kind: 'context' %>
-        <% end %>
-    </div>
+    <div class="row align-spaced">
 
-    <div class="callout">
-        <h3>Importance</h3>
-        <% if @project.contents.find_by(kind: 'importance') %>
-        <%= @project.contents.find_by(kind: 'importance').body %>
-        <% elsif users_project? %>
-        <%= render 'contents/form', content: content, kind: 'importance' %>
-        <% end %>
-    </div>
+        <div class="callout medium-4 column">
+            <h3>Importance</h3>
+            <% if @project.contents.find_by(kind: 'importance') %>
+            <%= @project.contents.find_by(kind: 'importance').body %>
+            <% elsif users_project? %>
+            <%= render 'contents/form', content: content, kind: 'importance' %>
+            <% end %>
+        </div>
 
-    <div class="callout">
-        <h3>Goals</h3>
-        <% if @project.contents.find_by(kind: 'goals') %>
-        <%= @project.contents.find_by(kind: 'goals').body %>
-        <% elsif users_project? %>
-        <%= render 'contents/form', content: content, kind: 'goals' %>
-        <% end %>
+        <div class="callout medium-4 column">
+            <h3>Goals</h3>
+            <% if @project.contents.find_by(kind: 'goals') %>
+            <%= @project.contents.find_by(kind: 'goals').body %>
+            <% elsif users_project? %>
+            <%= render 'contents/form', content: content, kind: 'goals' %>
+            <% end %>
+        </div>
+
     </div>
 
 </div>
