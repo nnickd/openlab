@@ -2,29 +2,29 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :update, :destroy]
 
   def index
-    # @payment = Payment.new
     @projects = Project.posted?.order('created_at DESC')
     @projects = @projects.search(params[:search]) if params[:search]
   end
 
   def show
-    @payment = Payment.new
-    @pool = Pool.new unless @project.pool
-    @log = @project.logs.new
-    @logs = @project.logs.order('created_at DESC')
-    @image = Image.new
-    @images = @project.images
+    @category_project = @project.categories_projects.new
+
     @video = @project.video ? @project.video : Video.new
+    @content = @project.contents.new
+    @image = @project.images.new
+    @log = @project.logs.new
+    @payment = Payment.new
+    @pool = Pool.new
   end
 
   def create
-    @project = current_user.projects.new(create_project_params)
+    @project = current_user.projects.new(project_params)
     return refresh_page unless @project.save
     redirect_to @project, notice: "project successfully created"
   end
 
   def update
-    return refresh_page unless @project.update(update_project_params)
+    return refresh_page unless @project.update(project_params)
     redirect_to @project, notice: "project successfully updated"
   end
 
@@ -39,11 +39,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
-  def create_project_params
+  def project_params
     params.require(:project).permit(:title, :posted)
   end
 
-  def update_project_params
-    params.require(:project).permit(:title, :about, :context, :significance, :goals, :image, :posted)
-  end
 end

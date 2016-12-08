@@ -20,29 +20,33 @@
 
 <div class="tabs-content" data-tabs-content="example-tabs">
     <div class="tabs-panel is-active" id="panel1">
-        <%= render 'info' %>
-        <%= render 'edit-form', project: @project if current_user == @project.user %>
-        <%= render 'videos/form', video: @video, project: @project if users_project? %>
+        <div class="align-center column">
+            <%= render 'info' %>
+            <%= render 'categories/form', category_project: @category_project, project: @project %>
+            <%= render 'form', project: @project, crud: 'Edit project' if users_project? %>
+            <%= render 'videos/form', video: @video, project: @project if users_project? %>
+            <%= render 'contents/project-content', content: @content %>
+        </div>
     </div>
     <div class="tabs-panel" id="panel2">
         <div class="medium-2">
-            <%= render 'logs/form', log: @log, project: @project if users_project? %>
-            <%= render 'logs/list', logs: @logs %>
+            <%= render 'logs/form', log: @log if users_project? %>
+            <%= render 'logs/list', logs: @project.logs.order('created_at DESC') %>
         </div>
     </div>
     <div class="tabs-panel" id="panel3">
         <% if @project.pool %>
         <%= render 'pools/info', pool: @project.pool %>
         <%= render 'payments/checkout', payment: @payment, pool: @project.pool %>
-    <% else %>
-        <%= render 'pools/form', pool: @pool, project: @project.id if users_project? %>
+        <% elsif users_project? %>
+        <%= render 'pools/form', pool: @pool, project: @project.id %>
         <% end %>
     </div>
     <div class="tabs-panel" id="panel4">
         <%= render 'ledger', payments: @project.pool.payments if @project.pool %>
     </div>
     <div class="tabs-panel" id="panel5">
-        <%= render 'images/form', image: @image, project: @project if users_project? %>
-        <%= render 'images/list', images: @images %>
+        <%= render 'images/form', image: @image if users_project? %>
+        <%= render 'images/list', images: @project.images %>
     </div>
 </div>

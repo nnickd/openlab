@@ -1,0 +1,10 @@
+<div class="row align-center medium-6">
+
+    <%= form_for([project, category_project]) do |f| %>
+
+    <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :science) %>
+
+    <%= f.submit 'add category', class: "expanded large button" %>
+    <% end %>
+
+</div>

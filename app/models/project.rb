@@ -2,8 +2,12 @@ class Project < ApplicationRecord
   belongs_to :user
   has_one :pool
   has_many :logs, dependent: :destroy
-  has_many :images
-  has_one :video
+  has_many :images, dependent: :destroy
+  has_one :video, dependent: :destroy
+  has_many :contents, dependent: :destroy
+
+  has_many :categories_projects
+  has_many :categories, through: :categories_projects
 
   validates :title, presence: true, uniqueness: true
 
@@ -11,5 +15,9 @@ class Project < ApplicationRecord
 
   def self.search(term)
     where(['title LIKE ?', "%#{term}%"])
+  end
+
+  def postable?
+    pool ? true : false
   end
 end

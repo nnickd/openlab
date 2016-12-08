@@ -1,16 +1,15 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:update, :destroy]
+
   def create
     @video = Video.new(video_params)
-    return redirect_to @video.project, notice: 'Video was successfully posted.' if @video.save
-    redirect_to @video.project
+    return redirect_to @video.project unless @video.save
+    redirect_to @video.project, notice: 'Video was successfully posted.'
   end
 
   def update
-    if @video.update(video_params)
-      return redirect_to @video.project, notice: 'Video was successfully updated.' if @video.save
-      redirect_to @video.project
-    end
+      return redirect_to @video.project unless @video.update(video_params)
+      redirect_to @video.project, notice: 'Video was successfully updated.'
   end
 
   def destroy

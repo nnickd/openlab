@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205190708) do
+ActiveRecord::Schema.define(version: 20161208034141) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "science"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_projects", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_categories_projects_on_category_id"
+    t.index ["project_id"], name: "index_categories_projects_on_project_id"
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.integer  "project_id"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "kind"
+    t.index ["project_id"], name: "index_contents_on_project_id"
+  end
 
   create_table "images", force: :cascade do |t|
     t.datetime "created_at",       null: false
@@ -29,7 +51,6 @@ ActiveRecord::Schema.define(version: 20161205190708) do
     t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
     t.index ["project_id"], name: "index_logs_on_project_id"
   end
 
@@ -55,12 +76,8 @@ ActiveRecord::Schema.define(version: 20161205190708) do
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.text     "about"
-    t.text     "context"
-    t.text     "significance"
-    t.text     "goals"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean  "posted"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
