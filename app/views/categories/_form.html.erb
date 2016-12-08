@@ -1,6 +1,6 @@
 <%= form_for(category) do |f| %>
 <%= f.text_field :science, placeholder: "category", class: "text-center"  %>
-<%= f.hidden_field :project_id, value: category.project.id %>
+<%= f.hidden_field :project_id, value: project.id %>
 
 <%= f.submit 'post log', class: "expanded large button" %>
 <% end %>

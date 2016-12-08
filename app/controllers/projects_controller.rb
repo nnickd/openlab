@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @category = @project.categories.new
+    @category = Category.new
 
     @video = @project.video ? @project.video : Video.new
     @content = @project.contents.new
