@@ -11,7 +11,7 @@ class LogsController < ApplicationController
 
   def update
       return redirect_to @project unless @log.update(log_params)
-      redirect_to @project notice: 'Log was successfully updated.'
+      redirect_to @project, notice: 'Log was successfully updated.'
   end
 
   def destroy

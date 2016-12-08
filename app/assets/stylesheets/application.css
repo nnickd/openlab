@@ -23,3 +23,11 @@
  .box {
    height: 600px;
  }
+
+p {
+  word-wrap: break-word;
+}
+
+.orbit-color {
+  background-color: #af75d8;
+}
