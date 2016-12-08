@@ -1,5 +1,4 @@
-<%= form_for image, url: images_path, html: { multipart: true } do |f| %>
+<%= form_for [project, image], html: { multipart: true } do |f| %>
   <%= f.file_field :pic %>
-  <%= f.hidden_field :project_id, value: image.project.id %>
   <%= f.submit 'post image', class: 'button expanded' %>
 <% end %>

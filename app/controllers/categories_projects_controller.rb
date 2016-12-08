@@ -4,8 +4,8 @@ class CategoriesProjectsController < ApplicationController
   def create
     @category_project = CategoriesProject.new(category_project_params)
     @category_project.project = @project
-    return refresh_page unless @category_project.save
-    refresh_page, notice: "category successfully created"
+    return redirect_to @project unless @category_project.save
+    redirect_to @project, notice: "category successfully created"
   end
 
   private

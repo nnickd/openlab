@@ -1,8 +1,10 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:update, :destroy]
-  
+  before_action :set_project, only: [:create]
+
   def create
     @content = Content.new(content_params)
+    @content.project = @project
     return redirect_to @content.project unless @content.save
     redirect_to @content.project, notice: 'Content was successfully posted.'
   end
@@ -19,11 +21,15 @@ class ContentsController < ApplicationController
 
   private
 
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
+
   def set_content
     @content = Content.find(params[:id])
   end
 
   def content_params
-    params.require(:content).permit(:body, :project_id, :kind)
+    params.require(:content).permit(:body, :kind)
   end
 end

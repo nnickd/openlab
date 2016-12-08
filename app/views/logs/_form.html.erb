@@ -1,9 +1,8 @@
 <div class="reveal" id="create-log" data-reveal>
 
-<%= form_for(log) do |f| %>
+<%= form_for([project, log]) do |f| %>
 <%= f.text_field :title, placeholder: "title", class: "text-center"  %>
 <%= f.text_area :body, placeholder: "body", class: "text-center"  %>
-<%= f.hidden_field :project_id, value: log.project.id %>
 
 <%= f.submit 'post log', class: "expanded large button" %>
 <% end %>

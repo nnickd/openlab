@@ -4,7 +4,7 @@
         <% if @project.contents.find_by(kind: 'about') %>
         <%= @project.contents.find_by(kind: 'about').body %>
         <% elsif users_project? %>
-        <%= render 'contents/form', content: content, kind: 'about' %>
+        <%= render 'contents/form', content: content, project: project, kind: 'about' %>
         <% end %>
     </div>
 
@@ -13,7 +13,7 @@
         <% if @project.contents.find_by(kind: 'context') %>
         <%= @project.contents.find_by(kind: 'context').body %>
         <% elsif users_project? %>
-        <%= render 'contents/form', content: content, kind: 'context' %>
+        <%= render 'contents/form', content: content, project: project, kind: 'context' %>
         <% end %>
     </div>
 
@@ -22,7 +22,7 @@
         <% if @project.contents.find_by(kind: 'importance') %>
         <%= @project.contents.find_by(kind: 'importance').body %>
         <% elsif users_project? %>
-        <%= render 'contents/form', content: content, kind: 'importance' %>
+        <%= render 'contents/form', content: content, project: project, kind: 'importance' %>
         <% end %>
     </div>
 
@@ -31,7 +31,7 @@
         <% if @project.contents.find_by(kind: 'goals') %>
         <%= @project.contents.find_by(kind: 'goals').body %>
         <% elsif users_project? %>
-        <%= render 'contents/form', content: content, kind: 'goals' %>
+        <%= render 'contents/form', content: content, project: project, kind: 'goals' %>
         <% end %>
     </div>
 

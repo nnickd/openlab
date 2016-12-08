@@ -1,10 +1,7 @@
-
-
 <div class="reveal" id="create-content" data-reveal>
 
-<%= form_for(content) do |f| %>
+<%= form_for([project, content]) do |f| %>
 <%= f.text_area :body, placeholder: "body", class: "text-center"  %>
-<%= f.hidden_field :project_id, value: content.project.id %>
 <%= f.hidden_field :kind, value: kind %>
 
 <%= f.submit 'post', class: "button expanded large" %>
