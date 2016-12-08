@@ -1,6 +1,5 @@
 
 
-<div class="reveal" id="create-content" data-reveal>
 
 <%= form_for(content) do |f| %>
 <%= f.text_area :body, placeholder: "body", class: "text-center"  %>
@@ -10,6 +9,3 @@
 <%= f.submit 'post', class: "button expanded large" %>
 <% end %>
 
-</div>
-
-<a data-open="create-content" class="button">update</a>
