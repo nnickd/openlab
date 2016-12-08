@@ -37,8 +37,8 @@
         <% if @project.pool %>
         <%= render 'pools/info', pool: @project.pool %>
         <%= render 'payments/checkout', payment: @payment, pool: @project.pool %>
-    <% else %>
-        <%= render 'pools/form', pool: @pool, project: @project.id if users_project? %>
+    <% elsif users_project? %>
+        <%= render 'pools/form', pool: @pool, project: @project.id %>
         <% end %>
     </div>
     <div class="tabs-panel" id="panel4">
