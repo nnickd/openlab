@@ -5,6 +5,7 @@
         <div class="">
             <%= project.user.username %>
             <%= project.title %>
+            <%= image_tag project.images.first.pic.url if project.images.first%>
             <%= project.about %>
             <%= link_to 'Show', project, class: "button" %>
         </div>
