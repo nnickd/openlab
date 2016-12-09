@@ -2,7 +2,7 @@
 
 <%= form_for [project, log], remote: true do |f| %>
 <%= f.text_field :title, placeholder: "title", class: "text-center"  %>
-<%= f.text_area :body, placeholder: "body", class: "text-center"  %>
+<%= f.text_field :body, placeholder: "body", class: "text-center"  %>
 
 <%= f.submit 'post log', class: "expanded large button" %>
 <% end %>
