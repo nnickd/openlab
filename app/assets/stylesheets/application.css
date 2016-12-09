@@ -29,5 +29,9 @@ p {
 }
 
 .orbit-color {
-  background-color: #af75d8;
+  background-color: #6644FF;
+}
+.topbar{
+  background: url('banner.jpg');
+  background-size: 100% 100%;
 }
