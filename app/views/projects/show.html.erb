@@ -22,14 +22,13 @@
     <div class="tabs-panel is-active" id="panel1">
         <div class="align-center column">
             <%= render 'info' %>
-            <%= render 'categories/form', category_project: @category_project, project: @project %>
+            <%= render 'categories/form', category_project: @category_project, project: @project unless @project.has_two_categories? %>
             <%= render 'form', project: @project, crud: 'Edit project' if users_project? %>
             <%= render 'videos/form', video: @video, project: @project if users_project? %>
             <%= render 'contents/project-content', content: @content, project: @project %>
         </div>
     </div>
     <div class="tabs-panel" id="panel2">
-
         <div class="medium-6">
             <%= render 'logs/form', log: @log, project: @project if users_project? %>
             <%= render 'logs/list', logs: @project.logs.order('created_at DESC') %>

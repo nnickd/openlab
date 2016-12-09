@@ -20,4 +20,8 @@ class Project < ApplicationRecord
   def postable?
     pool ? true : false
   end
+
+  def has_two_categories?
+    categories.length >= 2 ? true : false
+  end
 end
