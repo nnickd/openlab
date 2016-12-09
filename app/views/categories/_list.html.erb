@@ -1,7 +1,7 @@
-<div class="callout column">
+<div class="callout row expanded align-center">
 
 <% Category.all.each do |cat| %>
-<span class="label"><%= link_to cat.science, projects_path, method: :get, params: { cat_id: cat.id } %></span>
+<%= button_to cat.science, projects_path, method: :get, params: { cat_id: cat.id }, class: "button small" %>
 <% end %>
 
 </div>
