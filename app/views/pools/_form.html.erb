@@ -1,6 +1,6 @@
 <div class="reveal" id="create-pool" data-reveal>
 
-    <%= form_for(pool) do |f| %>
+    <%= form_for pool, remote: true do |f| %>
 
     <% if pool.errors.any? %>
     <div id="error_explanation">
