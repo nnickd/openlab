@@ -1,6 +1,6 @@
 <div class="reveal" id="create-video" data-reveal>
 
-<%= form_for video, remote: true do |f| %>
+<%= form_for video do |f| %>
 <%= f.text_field :youtube_link, placeholder: "Youtube Link", class: "text-center"  %>
 <%= f.hidden_field :project_id, value: project.id %>
 <%= f.submit class: "expanded large button" %>

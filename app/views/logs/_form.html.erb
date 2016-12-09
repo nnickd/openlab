@@ -1,6 +1,6 @@
 <div class="reveal" id="create-log" data-reveal>
 
-<%= form_for [project, log], remote: true do |f| %>
+<%= form_for [project, log] do |f| %>
 <%= f.text_field :title, placeholder: "title", class: "text-center"  %>
 <%= f.text_field :body, placeholder: "body", class: "text-center"  %>
 
