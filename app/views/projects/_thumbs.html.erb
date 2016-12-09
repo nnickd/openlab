@@ -11,16 +11,13 @@
                 <%= image_tag 'galaxy.jpg' %>
             </div>
 
-            <div class="row callout">
-                <p>
+            <div class="callout row">
+                <h3>
                     <%= pro.title %>
-                </p>
-            </div>
-
-            <div class="row callout">
+                </h3>
                 <%= render 'pools/thumb', pool: pro.pool %>
             </div>
-
+            
         </section>
         <% end %>
 
