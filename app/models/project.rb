@@ -12,6 +12,7 @@ class Project < ApplicationRecord
   validates :title, presence: true, uniqueness: true
 
   scope :posted?, -> { where(posted: true) }
+  # scope :of_category?, -> (category) { where() }
 
   def self.search(term)
     where(['title LIKE ?', "%#{term}%"])
@@ -24,4 +25,5 @@ class Project < ApplicationRecord
   def has_two_categories?
     categories.length >= 2 ? true : false
   end
+
 end

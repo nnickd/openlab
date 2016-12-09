@@ -1,7 +1,7 @@
 <div class="callout column">
 
 <% Category.all.each do |cat| %>
-<span class="label"><%= cat.science %></span>
+<span class="label"><%= button_to cat.science, projects_path, method: :get, params: { cat_id: cat.id } %></span>
 <% end %>
 
 </div>

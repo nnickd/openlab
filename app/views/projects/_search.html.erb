@@ -1,4 +1,9 @@
-<%= form_tag(projects_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search for projects" %>
-<%= submit_tag "Search", :name => nil, class: "button expanded" %>
+<%= form_tag(projects_path, :method => "get", id: "search-form", class: "medium-12") do %>
+<div class="input-group">
+    <span class="input-group-label">Explore</span>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for projects", class: "input-group-field" %>
+    <div class="input-group-button">
+        <%= submit_tag "Search", :name => nil, class: "button expanded" %>
+    </div>
+</div>
 <% end %>

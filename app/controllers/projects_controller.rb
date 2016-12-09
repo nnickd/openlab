@@ -4,6 +4,8 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.posted?.order('created_at DESC')
     @projects = @projects.search(params[:search]) if params[:search]
+    @category = Category.find(params[:cat_id]) if params[:cat_id]
+    @projects = @category.projects if params[:cat_id]
   end
 
   def show
@@ -20,12 +22,12 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(project_params)
     return refresh_page unless @project.save
-    redirect_to @project, notice: "project successfully created"
+    redirect_to @project, notice: 'project successfully created'
   end
 
   def update
     return refresh_page unless @project.update(project_params)
-    redirect_to @project, notice: "project successfully updated"
+    redirect_to @project, notice: 'project successfully updated'
   end
 
   def destroy
@@ -42,5 +44,4 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :posted)
   end
-
 end
