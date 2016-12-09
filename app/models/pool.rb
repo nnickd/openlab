@@ -1,6 +1,7 @@
 class Pool < ApplicationRecord
   belongs_to :project
   has_many :payments
+  validates :goal, presence: true
 
   def progress
     pledged.to_f / goal * 100

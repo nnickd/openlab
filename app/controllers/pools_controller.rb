@@ -8,10 +8,10 @@ class PoolsController < ApplicationController
     respond_to do |format|
       if @pool.save
         format.json { redirect_to @pool.project }
-        # format.html { redirect_to @pool.project, notice: 'Task was successfully created.' }
+        format.html { redirect_to @pool.project, notice: 'Task was successfully created.' }
       else
         format.json { render json: @task.errors, status: :unprocessable_entity }
-        # format.html { render @pool.project }
+        format.html { render @pool.project }
       end
     end
 
