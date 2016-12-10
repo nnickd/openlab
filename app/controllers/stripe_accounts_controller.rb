@@ -1,13 +1,13 @@
 class StripeAccountsController < ApplicationController
   def create
-    @stripe_account = stripe_account.new(stripe_account_params)
-    return redirect_to @stripe_account.user. unless @stripe_account.save
-    redirect_to @stripe_account.user, notice: 'stripe_account was successfully posted.'
+    @stripe_account = StripeAccount.new(stripe_account_params)
+    return redirect_to users_path unless @stripe_account.save
+    redirect_to users_path, notice: 'stripe_account was successfully posted.'
   end
 
   private
 
   def stripe_account_params
-    params.require(:stripe_account).permit(:first_name, :last_name, :last_4_social)
+    params.require(:stripe_account).permit(:first_name, :last_name, :last_4_social, :user_id)
   end
 end

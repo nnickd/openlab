@@ -1,4 +1,4 @@
-class AddressessController < ApplicationController
+class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     return redirect_to @address.stripe_account.user. unless @address.save
