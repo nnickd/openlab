@@ -6,7 +6,7 @@ class StripeAccountsController < ApplicationController
     Stripe.api_key = Rails.configuration.stripe[:secret_key]
     account = Stripe::Account.create(
       managed: true,
-      country: 'US',
+      country: @stripe_account.country,
       legal_entity: {
         type: 'individual',
         first_name: @stripe_account.first_name,
@@ -27,6 +27,6 @@ class StripeAccountsController < ApplicationController
   private
 
   def stripe_account_params
-    params.require(:stripe_account).permit(:first_name, :last_name, :last_4_social, :date_of_birth, :user_id)
+    params.require(:stripe_account).permit(:first_name, :last_name, :country, :last_4_social, :date_of_birth, :user_id)
   end
 end

@@ -3,6 +3,7 @@
     <%= form_for stripe_account do |f| %>
     <%= f.text_field :first_name, placeholder: "first name", class: "text-center"  %>
     <%= f.text_field :last_name, placeholder: "last name", class: "text-center"  %>
+    <%= f.text_field :country, placeholder: "country", class: "text-center"  %>
     <%= f.number_field :last_4_social, placeholder: "last 4 digits of your social security number", class: "text-center"  %>
     <%= f.label 'please enter your date of birth' %>
     <%= f.date_select :date_of_birth, options = {start_year: Date.today.year - 100, end_year: Date.today.year} %>
