@@ -3,7 +3,7 @@ $(function(){
   var handler = StripeCheckout.configure({
       key: '<%= Rails.configuration.stripe[:publishable_key] %>',
       locale: 'auto',
-      name: 'Sand Castles United',
+      name: 'OpenLAB',
       description: 'One-time donation',
       token: function (token) {
           $('input#stripeToken').val(token.id);
