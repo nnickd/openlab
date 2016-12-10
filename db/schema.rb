@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209232738) do
+ActiveRecord::Schema.define(version: 20161210171053) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "science"
@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(version: 20161209232738) do
     t.datetime "updated_at", null: false
     t.boolean  "posted"
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "stripe_accounts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "last_4_social"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["user_id"], name: "index_stripe_accounts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
