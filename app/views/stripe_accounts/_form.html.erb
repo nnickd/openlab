@@ -1,0 +1,7 @@
+<%= form_for stripe_account do |f| %>
+<%= f.text_field :first_name, placeholder: "first name", class: "text-center"  %>
+<%= f.text_field :last_name, placeholder: "last name", class: "text-center"  %>
+<%= f.number_field :last_4_social, placeholder: "last 4 digits of your social security number", class: "text-center"  %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.submit 'submit stripe account', class: "expanded large button" %>
+<% end %>
