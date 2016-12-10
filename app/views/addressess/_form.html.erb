@@ -1,3 +1,6 @@
+<div class="reveal" id="create-address" data-reveal>
+
+
 <%= form_for address do |f| %>
 <%= f.text_field :city, placeholder: "city", class: "text-center"  %>
 <%= f.text_field :country, placeholder: "country", class: "text-center"  %>
@@ -8,3 +11,7 @@
 <%= f.hidden_field :stripe_account_id, value: current_user.stripe_account.id %>
 <%= f.submit 'submit address', class: "expanded large button" %>
 <% end %>
+
+</div>
+
+<a data-open="create-address" class="button">Add your address</a>

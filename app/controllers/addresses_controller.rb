@@ -1,8 +1,8 @@
 class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
-    return redirect_to @address.stripe_account.user. unless @address.save
-    redirect_to @address.stripe_account.user, notice: 'Address was successfully posted.'
+    return redirect_to users_path unless @address.save
+    redirect_to users_path, notice: 'Address was successfully posted.'
   end
 
   private

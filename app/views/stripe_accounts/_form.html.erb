@@ -1,3 +1,6 @@
+<div class="reveal" id="create-stripe-account" data-reveal>
+
+
 <%= form_for stripe_account do |f| %>
 <%= f.text_field :first_name, placeholder: "first name", class: "text-center"  %>
 <%= f.text_field :last_name, placeholder: "last name", class: "text-center"  %>
@@ -5,3 +8,7 @@
 <%= f.hidden_field :user_id, value: current_user.id %>
 <%= f.submit 'submit stripe account', class: "expanded large button" %>
 <% end %>
+
+</div>
+
+<a data-open="create-stripe-account" class="button">Create a stripe account</a>
