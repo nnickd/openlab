@@ -27,6 +27,6 @@
     </div>
     <div class="tabs-panel" id="panel4">
       <%= render 'stripe_accounts/form', stripe_account: @stripe_account %>
-      <%= render 'addressess/form', address: @address if current_user.stripe_account %>
+      <%= render 'addresses/form', address: @address if current_user.stripe_account %>
     </div>
 </div>
