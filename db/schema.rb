@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210194514) do
+ActiveRecord::Schema.define(version: 20161210215637) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city"
-    t.string   "country"
     t.string   "state"
     t.string   "line1"
     t.string   "line2"
@@ -106,6 +105,7 @@ ActiveRecord::Schema.define(version: 20161210194514) do
     t.datetime "updated_at",    null: false
     t.string   "managed_id"
     t.date     "date_of_birth"
+    t.string   "country"
     t.index ["user_id"], name: "index_stripe_accounts_on_user_id"
   end
 
