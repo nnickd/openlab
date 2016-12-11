@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   resource :sessions
   resource :users
-  resource :stripe_accounts
   resource :addresses
+  resource :stripe_accounts
 
   resources :videos, except: [:show, :index]
   resources :projects, shallow: true do

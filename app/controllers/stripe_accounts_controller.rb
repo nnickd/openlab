@@ -24,7 +24,17 @@ class StripeAccountsController < ApplicationController
     redirect_to users_path, notice: 'stripe account was successfully created.'
   end
 
+  def update
+    set_stripe_account
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    byebug
+  end
+
   private
+
+  def set_stripe_account
+    @stripe_account = StripeAccount.find(params[:id])
+  end
 
   def stripe_account_params
     params.require(:stripe_account).permit(:first_name, :last_name, :country, :last_4_social, :date_of_birth, :user_id)
