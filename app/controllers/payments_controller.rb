@@ -28,7 +28,7 @@ class PaymentsController < ApplicationController
       amount: @amount,
       currency: 'usd',
       source: params[:stripeToken],
-      destination: @payment.pool.creator.stripe_account.managed_id,
+      destination: @payment.pool.external_account.token,
       description: 'Custom donation'
     )
     redirect_to @payment.pool.project
