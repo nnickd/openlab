@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210215637) do
+ActiveRecord::Schema.define(version: 20161211202602) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20161210215637) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["stripe_account_id"], name: "index_addresses_on_stripe_account_id"
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.string   "currency"
+    t.integer  "routing_number"
+    t.integer  "account_number"
+    t.string   "account_holder_name"
+    t.string   "account_holder_type"
+    t.integer  "stripe_account_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["stripe_account_id"], name: "index_banks_on_stripe_account_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -44,6 +56,17 @@ ActiveRecord::Schema.define(version: 20161210215637) do
     t.datetime "updated_at", null: false
     t.string   "kind"
     t.index ["project_id"], name: "index_contents_on_project_id"
+  end
+
+  create_table "external_accounts", force: :cascade do |t|
+    t.string   "kind"
+    t.string   "token"
+    t.string   "currency"
+    t.string   "country"
+    t.integer  "stripe_account_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["stripe_account_id"], name: "index_external_accounts_on_stripe_account_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -106,6 +129,7 @@ ActiveRecord::Schema.define(version: 20161210215637) do
     t.string   "managed_id"
     t.date     "date_of_birth"
     t.string   "country"
+    t.string   "bank_token"
     t.index ["user_id"], name: "index_stripe_accounts_on_user_id"
   end
 
