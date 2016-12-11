@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211202602) do
+ActiveRecord::Schema.define(version: 20161211202817) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "city"
@@ -105,9 +105,11 @@ ActiveRecord::Schema.define(version: 20161211202602) do
     t.integer  "goal"
     t.integer  "pledged"
     t.datetime "deadline"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "project_id"
+    t.integer  "external_account_id"
+    t.index ["external_account_id"], name: "index_pools_on_external_account_id"
   end
 
   create_table "projects", force: :cascade do |t|
