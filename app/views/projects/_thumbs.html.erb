@@ -11,14 +11,19 @@
                 <%= image_tag 'galaxy.jpg' %>
             </div>
 
-            <div class="row callout">
-                <p>
+            <div class="callout row">
+                <h3>
                     <%= pro.title %>
-                </p>
-            </div>
+                </h3>
+                <% if pro.categories.length > 0 %>
+                <div class="row align-center">
+                    <%= render "categories/labels", project: pro %>
+                </div>
+                <% end %>
+                <div>
 
-            <div class="row callout">
-                <%= render 'pools/thumb', pool: pro.pool %>
+                    <%= render 'pools/thumb', pool: pro.pool %>
+                </div>
             </div>
 
         </section>

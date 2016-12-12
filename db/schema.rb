@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209182045) do
+ActiveRecord::Schema.define(version: 20161211221647) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "city"
+    t.string   "state"
+    t.string   "line1"
+    t.string   "line2"
+    t.integer  "postal_code"
+    t.integer  "stripe_account_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["stripe_account_id"], name: "index_addresses_on_stripe_account_id"
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.string   "currency"
+    t.integer  "routing_number"
+    t.integer  "account_number"
+    t.string   "account_holder_name"
+    t.string   "account_holder_type"
+    t.integer  "stripe_account_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["stripe_account_id"], name: "index_banks_on_stripe_account_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "science"
@@ -34,6 +58,17 @@ ActiveRecord::Schema.define(version: 20161209182045) do
     t.index ["project_id"], name: "index_contents_on_project_id"
   end
 
+  create_table "external_accounts", force: :cascade do |t|
+    t.string   "kind"
+    t.string   "token"
+    t.string   "currency"
+    t.string   "country"
+    t.integer  "stripe_account_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["stripe_account_id"], name: "index_external_accounts_on_stripe_account_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -51,7 +86,9 @@ ActiveRecord::Schema.define(version: 20161209182045) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "body"
+    t.integer  "user_id"
     t.index ["project_id"], name: "index_logs_on_project_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -80,6 +117,20 @@ ActiveRecord::Schema.define(version: 20161209182045) do
     t.datetime "updated_at", null: false
     t.boolean  "posted"
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "stripe_accounts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "last_4_social"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "managed_id"
+    t.date     "date_of_birth"
+    t.string   "country"
+    t.boolean  "verified"
+    t.index ["user_id"], name: "index_stripe_accounts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

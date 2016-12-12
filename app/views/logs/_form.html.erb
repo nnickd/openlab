@@ -3,10 +3,10 @@
 <%= form_for [project, log] do |f| %>
 <%= f.text_field :title, placeholder: "title", class: "text-center"  %>
 <%= f.text_field :body, placeholder: "body", class: "text-center"  %>
-
+<%= f.hidden_field :user_id, value: current_user.id %>
 <%= f.submit 'post log', class: "expanded large button" %>
 <% end %>
 
 </div>
 
-<a data-open="create-log" class="button expanded">create log</a>
+<a data-open="create-log" class="button expanded">post comment</a>

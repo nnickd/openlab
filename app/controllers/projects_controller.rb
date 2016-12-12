@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
 
   def show
     @category_project = @project.categories_projects.new
-
     @video = @project.video ? @project.video : Video.new
     @content = @project.contents.new
     @image = @project.images.new

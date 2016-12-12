@@ -5,7 +5,7 @@
         <a href="#panel1" aria-selected="true">Info</a>
     </li>
     <li class="tabs-title">
-        <a href="#panel2">Logs</a>
+        <a href="#panel2">Comments</a>
     </li>
     <li class="tabs-title">
         <a href="#panel3">Fund</a>
@@ -21,16 +21,17 @@
 <div class="tabs-content" data-tabs-content="example-tabs">
     <div class="tabs-panel is-active" id="panel1">
         <div class="align-center column">
+            <%= render 'need-to-post' %>
             <%= render 'info' %>
             <%= render 'categories/form', category_project: @category_project, project: @project unless @project.has_two_categories? %>
             <%= render 'form', project: @project, crud: 'Edit project' if users_project? %>
             <%= render 'videos/form', video: @video, project: @project if users_project? %>
-            <div class="row align-center"><%= render 'contents/project-content', content: @content, project: @project %></div>
+            <div class="row align-center content-box"><%= render 'contents/project-content', content: @content, project: @project %></div>
         </div>
     </div>
     <div class="tabs-panel" id="panel2">
-        <div class="medium-6", id="log-list">
-            <%= render 'logs/form', log: @log, project: @project if users_project? %>
+        <div class="medium-6" , id="log-list">
+            <%= render 'logs/form', log: @log, project: @project if current_user %>
             <%= render 'logs/list', logs: @project.logs.order('created_at DESC') %>
         </div>
     </div>

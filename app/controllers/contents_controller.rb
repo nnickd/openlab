@@ -10,7 +10,7 @@ class ContentsController < ApplicationController
   end
 
   def update
-      return redirect_to @content.project unless @content.update(update_content_params)
+      return redirect_to @content.project unless @content.update(content_params)
       redirect_to @content.project notice: 'Content was successfully updated.'
   end
 

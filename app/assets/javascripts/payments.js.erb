@@ -3,7 +3,7 @@ $(function(){
   var handler = StripeCheckout.configure({
       key: '<%= Rails.configuration.stripe[:publishable_key] %>',
       locale: 'auto',
-      name: 'Sand Castles United',
+      name: 'OpenLAB',
       description: 'One-time donation',
       token: function (token) {
           $('input#stripeToken').val(token.id);
@@ -26,12 +26,11 @@ $(function(){
       } else if (amount < 5.00) {
           $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
       } else {
-          amount = amount * 100; // Needs to be an integer!
+          amount = amount * 100;
           handler.open({amount: Math.round(amount)})
       }
   });
 
-  // Close Checkout on page navigation
   $(window).on('popstate', function () {
       handler.close();
   });
