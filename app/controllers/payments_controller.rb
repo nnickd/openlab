@@ -2,8 +2,8 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     @payment.amount = params[:amount].to_i
-
     @payment.save
+
     @payment.pool.add_payment(@payment)
 
     @amount = params[:amount].delete('$').delete(',')
@@ -28,7 +28,7 @@ class PaymentsController < ApplicationController
       amount: @amount,
       currency: 'usd',
       source: params[:stripeToken],
-      destination: @payment.pool.external_account.token,
+      destination: @payment.pool.creator.stripe_account.managed_id,
       description: 'Custom donation'
     )
     redirect_to @payment.pool.project

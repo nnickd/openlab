@@ -18,7 +18,7 @@ class Project < ApplicationRecord
   end
 
   def postable?
-    pool && video && categories.length >= 1 && contents.length >= 4 ? true : false
+    pool && video && categories.length >= 1 && contents.length >= 4 && user.stripe_account ? true : false
   end
 
   def has_two_categories?

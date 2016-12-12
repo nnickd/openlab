@@ -1,0 +1,10 @@
+<div class="column">
+  <%= "video" unless @project.video %>
+  <%= "about" unless @project.contents.find_by(kind: 'about') %>
+  <%= "context" unless @project.contents.find_by(kind: 'context') %>
+  <%= "importance" unless @project.contents.find_by(kind: 'importance') %>
+  <%= "goals" unless @project.contents.find_by(kind: 'goals') %>
+  <%= "pool" unless @project.pool %>
+  <%= "category" unless @project.categories.length > 0 %>
+  <%= "stripe account" unless @project.user.stripe_account %>
+</div>

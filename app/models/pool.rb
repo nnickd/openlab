@@ -2,7 +2,6 @@ class Pool < ApplicationRecord
   belongs_to :project
   has_many :payments
   validates :goal, presence: true
-  belongs_to :external_account
 
   def progress
     pledged.to_f / goal * 100

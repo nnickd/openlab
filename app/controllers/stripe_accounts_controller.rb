@@ -37,6 +37,6 @@ class StripeAccountsController < ApplicationController
   end
 
   def stripe_account_params
-    params.require(:stripe_account).permit(:first_name, :last_name, :country, :last_4_social, :date_of_birth, :user_id)
+    params.require(:stripe_account).permit(:first_name, :last_name, :country, :last_4_social, :date_of_birth, :user_id, :verified)
   end
 end

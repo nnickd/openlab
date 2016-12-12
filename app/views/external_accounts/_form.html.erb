@@ -1,0 +1,32 @@
+<div class="reveal" id="create-bank" data-reveal>
+
+    <%= form_for external_account, id: 'bank-form' do |f| %>
+
+    <%= label_tag "currency" %>
+    <%= f.text_field :currency, class: "currency" %>
+
+    <%= label_tag "country" %>
+    <%= f.text_field :country, class: "country" %>
+
+    <%= label_tag "account_holder_name" %>
+    <input type="text" class="name">
+
+    <%= label_tag "account_holder_type" %>
+    <input type="text" class="account-holder-type">
+
+    <%= label_tag "routing_number" %>
+    <input type="text" class="routing-number">
+
+    <%= label_tag "account_number" %>
+    <input type="text" class="account-number">
+
+    <%= f.hidden_field :kind, value: 'bank' %>
+    <%= f.hidden_field :stripe_account_id, value: current_user.stripe_account.id %>
+    <%= f.hidden_field :token, id: "stripeToken" %>
+
+    <%= f.submit 'submit external account', class: "expanded large button" %>
+    <% end %>
+
+</div>
+
+<a data-open="create-bank" class="button">Add your bank</a>

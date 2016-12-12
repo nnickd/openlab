@@ -8,6 +8,7 @@
     <%= f.label 'please enter your date of birth' %>
     <%= f.date_select :date_of_birth, options = {start_year: Date.today.year - 100, end_year: Date.today.year} %>
     <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :verified, value: false %>
     <%= f.submit 'submit stripe account', class: "expanded large button" %>
     <% end %>
 

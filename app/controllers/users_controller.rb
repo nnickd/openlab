@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @stripe_account = StripeAccount.new
     @address = Address.new
+    @external_account = ExternalAccount.new
     @project = current_user.projects.new
     @projects = current_user.projects
     @payments = current_user.payments
