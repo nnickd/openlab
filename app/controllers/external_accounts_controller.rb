@@ -3,7 +3,6 @@ class ExternalAccountsController < ApplicationController
       @external_account = ExternalAccount.new(external_account_params)
       return redirect_to users_path unless @external_account.save
 
-
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
       account = Stripe::Account.retrieve @external_account.stripe_account.managed_id
       account.external_accounts.create({external_account: @external_account.token})
