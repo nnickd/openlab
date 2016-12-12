@@ -23,5 +23,6 @@
       <%= render 'stripe_accounts/form', stripe_account: @stripe_account %>
       <%= render 'addresses/form', address: @address if current_user.stripe_account %>
       <%= render 'external_accounts/form', external_account: @external_account if current_user.stripe_account %>
+      <%= render 'stripe_accounts/tos' if current_user.stripe_account %>
     </div>
 </div>
