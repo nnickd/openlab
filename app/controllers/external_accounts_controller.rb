@@ -3,7 +3,6 @@ class ExternalAccountsController < ApplicationController
       @external_account = ExternalAccount.new(external_account_params)
       return redirect_to users_path unless @external_account.save
 
-      byebug
       @external_account.update(token: params[:stripeToken])
 
       Stripe.api_key = Rails.configuration.stripe[:secret_key]

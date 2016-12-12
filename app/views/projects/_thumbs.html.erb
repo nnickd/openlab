@@ -15,10 +15,15 @@
                 <h3>
                     <%= pro.title %>
                 </h3>
+                <% if pro.categories.length > 0 %>
+                <div class="row align-center">
+                    <%= render "categories/labels", project: pro %>
+                </div>
+                <% end %>
                 <div>
 
-                <%= render 'pools/thumb', pool: pro.pool %>
-              </div>
+                    <%= render 'pools/thumb', pool: pro.pool %>
+                </div>
             </div>
 
         </section>

@@ -2,30 +2,24 @@
 
 <ul class="tabs" data-tabs id="user-tabs">
     <li class="tabs-title is-active">
-        <a href="#panel1" aria-selected="true">Profile</a>
+        <a href="#panel1">My Projects</a>
     </li>
     <li class="tabs-title">
-        <a href="#panel2">My Projects</a>
+        <a href="#panel2">My Payments</a>
     </li>
     <li class="tabs-title">
-        <a href="#panel3">My Payments</a>
-    </li>
-    <li class="tabs-title">
-        <a href="#panel4">Stripe Account</a>
+        <a href="#panel3">Stripe Account</a>
     </li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="user-tabs">
     <div class="tabs-panel is-active" id="panel1">
-        <%= render 'info' %>
-    </div>
-    <div class="tabs-panel" id="panel2">
         <%= render 'projects/thumbs', projects: @projects %>
     </div>
-    <div class="tabs-panel" id="panel3">
+    <div class="tabs-panel" id="panel2">
         <%= render 'ledger', payments: @payments %>
     </div>
-    <div class="tabs-panel" id="panel4">
+    <div class="tabs-panel" id="panel3">
       <%= render 'stripe_accounts/form', stripe_account: @stripe_account %>
       <%= render 'addresses/form', address: @address if current_user.stripe_account %>
       <%= render 'external_accounts/form', external_account: @external_account if current_user.stripe_account %>

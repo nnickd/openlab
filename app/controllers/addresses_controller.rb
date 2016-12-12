@@ -14,6 +14,16 @@ class AddressesController < ApplicationController
     redirect_to users_path, notice: 'Address was successfully posted.'
   end
 
+  # def update
+  #     return redirect_to users_path unless @address.update(address_params)
+  #     redirect_to users_path notice: 'Address was successfully updated.'
+  # end
+  #
+  # def destroy
+  #   @address.destroy
+  #   redirect_to users_path, notice: 'Address was successfully destroyed.'
+  # end
+
   private
 
   def address_params

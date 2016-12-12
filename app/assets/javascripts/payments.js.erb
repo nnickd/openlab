@@ -26,12 +26,11 @@ $(function(){
       } else if (amount < 5.00) {
           $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
       } else {
-          amount = amount * 100; // Needs to be an integer!
+          amount = amount * 100;
           handler.open({amount: Math.round(amount)})
       }
   });
 
-  // Close Checkout on page navigation
   $(window).on('popstate', function () {
       handler.close();
   });

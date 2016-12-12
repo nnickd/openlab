@@ -1,11 +1,6 @@
 class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
-    @payment.amount = params[:amount].to_i
-    @payment.save
-
-    @payment.pool.add_payment(@payment)
-
     @amount = params[:amount].delete('$').delete(',')
 
     begin
@@ -16,7 +11,7 @@ class PaymentsController < ApplicationController
       return
     end
 
-    @amount = (@amount * 100).to_i # Must be an integer!
+    @amount = (@amount * 100).to_i
 
     if @amount < 500
       flash[:error] = 'payment not completed. Donation amount must be at least $5.'
@@ -24,13 +19,18 @@ class PaymentsController < ApplicationController
       return
     end
 
-    Stripe::Charge.create(
+    charge = Stripe::Charge.create(
       amount: @amount,
       currency: 'usd',
       source: params[:stripeToken],
       destination: @payment.pool.creator.stripe_account.managed_id,
       description: 'Custom donation'
     )
+
+    @payment.amount = charge.amount / 100
+    @payment.save
+    @payment.pool.add_payment(@payment)
+
     redirect_to @payment.pool.project
 
   rescue Stripe::CardError => e
