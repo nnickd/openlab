@@ -24,18 +24,6 @@ ActiveRecord::Schema.define(version: 20161212182330) do
     t.index ["stripe_account_id"], name: "index_addresses_on_stripe_account_id"
   end
 
-  create_table "banks", force: :cascade do |t|
-    t.string   "currency"
-    t.integer  "routing_number"
-    t.integer  "account_number"
-    t.string   "account_holder_name"
-    t.string   "account_holder_type"
-    t.integer  "stripe_account_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["stripe_account_id"], name: "index_banks_on_stripe_account_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string   "science"
     t.datetime "created_at", null: false
