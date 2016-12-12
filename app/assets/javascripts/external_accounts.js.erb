@@ -1,6 +1,8 @@
 $(function() {
 
-  $('#bank-form').submit(function() {
+  $('#new_external_account').submit(function(e) {
+
+    e.preventDefault();
 
     Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
 
@@ -15,7 +17,7 @@ $(function() {
 
     function stripeResponseHandler(status, response) {
 
-      var $form = $('#bank-form');
+      var $form = $('#new_external_account');
 
       if (response.error) {
 

@@ -1,6 +1,6 @@
 <div class="reveal" id="create-bank" data-reveal>
 
-    <%= form_for external_account, id: 'bank-form' do |f| %>
+    <%= form_for external_account do |f| %>
 
     <%= label_tag "currency" %>
     <%= f.text_field :currency, class: "currency" %>
