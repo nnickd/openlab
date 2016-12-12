@@ -58,7 +58,7 @@ $foundation-palette: (
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #0a0a0a;
+$black: #00FFFF;
 $white: #fefefe;
 $body-background: url('grey.jpg');
 $body-font-color: $black;
@@ -139,8 +139,8 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: pink;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-color: #00F6FF;
+$anchor-color-hover: scale-color($anchor-color, $lightness: +14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -237,7 +237,7 @@ $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background-hover: scale-color($button-background, $lightness: +10%);
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
@@ -517,14 +517,14 @@ $show-header-for-stacked: false;
 // --------
 
 $tab-margin: 0;
-$tab-background: $white;
-$tab-background-active: $light-gray;
+$tab-background: #FF30A2;
+$tab-background-active: #B600FF;
 $tab-item-font-size: rem-calc(25);
-$tab-item-background-hover: $white;
+$tab-item-background-hover: #FF30A2;
 $tab-item-padding: 1.25rem 1.5rem;
 $tab-expand-max: 6;
-$tab-content-background: $white;
-$tab-content-border: $light-gray;
+$tab-content-background: #B600FF;
+$tab-content-border: #B600FF;
 $tab-content-color: foreground($tab-background, $primary-color);
 $tab-content-padding: 1rem;
 
