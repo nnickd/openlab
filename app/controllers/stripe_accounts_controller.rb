@@ -30,6 +30,16 @@ class StripeAccountsController < ApplicationController
     byebug
   end
 
+  def tos
+    @stripe_account = current_user.stripe_account
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    account = Stripe::Account.retrieve @stripe_account.managed_id
+    account.tos_acceptance.date = Time.now.to_i
+    account.tos_acceptance.ip = request.remote_ip
+    account.save
+    redirect_to users_path, notice: 'success'
+  end
+
   private
 
   def set_stripe_account

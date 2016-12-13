@@ -1,38 +1,38 @@
 $(function() {
-Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
 
-Stripe.bankAccount.createToken({
-  country: $('.country').val(),
-  currency: $('.currency').val(),
-  routing_number: $('.routing-number').val(),
-  account_number: $('.account-number').val(),
-  account_holder_name: $('.name').val(),
-  account_holder_type: $('.account_holder_type').val()
-}, stripeResponseHandler);
+  $('#new_external_account').submit(function(e) {
 
-function stripeResponseHandler(status, response) {
+    e.preventDefault();
 
-  // Grab the form:
-  var $form = $('#bank-form');
+    Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
 
-  if (response.error) { // Problem!
+    Stripe.bankAccount.createToken({
+      country: $('.country').val(),
+      currency: $('.currency').val(),
+      routing_number: $('.routing-number').val(),
+      account_number: $('.account-number').val(),
+      account_holder_name: $('.name').val(),
+      account_holder_type: $('.account_holder_type').val()
+    }, stripeResponseHandler);
 
-    // Show the errors on the form:
-    $form.find('.bank-errors').text(response.error.message);
-    $form.find('button').prop('disabled', false); // Re-enable submission
+    function stripeResponseHandler(status, response) {
 
-  } else { // Token created!
+      var $form = $('#new_external_account');
 
-    // Get the token ID:
-    var token = response.id;
-    // Insert the token into the form so it gets submitted to the server:
-    $('#stripeToken').val(token);
+      if (response.error) {
 
-    // Submit the form:
-    $form.get(0).submit();
+        $form.find('.bank-errors').text(response.error.message);
+        $form.find('button').prop('disabled', false);
 
-  }
-}
+      } else {
 
+        var token = response.id;
+        $('#stripeToken').val(token);
+        $form.get(0).submit();
+
+      }
+    }
+
+  });
 
 });

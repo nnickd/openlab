@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   resource :sessions
   resource :users
   resource :addresses
-  resource :stripe_accounts
   resource :external_accounts
+
+  resource :stripe_accounts
+  post '/tos' => 'stripe_accounts#tos', as: 'tos'
+
 
   resources :videos, except: [:show, :index]
   resources :projects, shallow: true do
@@ -18,5 +21,4 @@ Rails.application.routes.draw do
     resources :contents
     resources :categories
   end
-
 end

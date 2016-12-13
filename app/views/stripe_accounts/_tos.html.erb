@@ -1,0 +1,12 @@
+<div class="column align-center">
+<div class="callout medium-2 text-center">
+<%= link_to 'acount agreement', 'https://stripe.com/us/connect-account/legal' %> |
+<%= link_to 'terms of service', 'https://stripe.com/us/checkout/legal' %>
+</div>
+
+<%= form_tag tos_path do %>
+<%= submit_tag 'I agree to terms and services', class: 'button' %>
+<% end %>
+
+
+</div>
