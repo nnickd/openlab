@@ -26,6 +26,7 @@
 
 p {
   word-wrap: break-word;
+  color: black;
 }
 
 .orbit-color {
@@ -79,15 +80,24 @@ section:hover, #log:hover, .input-group-label:hover {
 .callout.row:hover{
   box-shadow: inset 0 0 100px 100px rgba(255, 90, 90, 0.4);
 }
-<<<<<<< HEAD
 #search{
   background-color: #3D3D3D;
 }
 .input-group-label{
   background-color: #3D3D3D;
 }
-.reveal-overlay{
-display: black;
+
+.column{
+  color: black;
 }
-=======
->>>>>>> master
+
+label {
+  color: black;
+}
+
+#title{
+  color: #DC00FF;
+}
+.log {
+  height: 150px;
+}

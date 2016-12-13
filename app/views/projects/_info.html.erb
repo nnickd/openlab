@@ -1,20 +1,18 @@
+<div id="title" class="row align-center">
+    <h2>
+        <%= @project.title %>
+    </h2>
+</div>
+
 <div class="row align-center">
     <%= youtube_frame @project.video.youtube_link if @project.video %>
 </div>
 
-<div class="row align-center">
-    <p>
+<div id="title" class="row align-center">
+    <h4>
         <strong>User:</strong>
         <%= @project.user.username %>
-    </p>
-    <p>
-        <strong>Title:</strong>
-        <%= @project.title %>
-    </p>
-    <p>
-        <strong>Posted:</strong>
-        <%= @project.posted %>
-    </p>
+    </h4>
 </div>
 
 <div class="row align-center">
