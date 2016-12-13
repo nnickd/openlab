@@ -24,7 +24,7 @@
     <% end %>
     <%= f.submit crud, class: "expanded large button" %>
     <% end %>
-    <%= render 'projects/need-to-post' unless project.postable? %>
+    <%= render 'projects/need-to-post' unless project.postable? || crud == 'Create project' %>
 </div>
 
 <% if crud == 'Create project' %>
