@@ -21,7 +21,6 @@
 <div class="tabs-content" data-tabs-content="example-tabs">
     <div class="tabs-panel is-active" id="panel1">
         <div class="align-center column">
-            <%= render 'need-to-post' %>
             <%= render 'info' %>
             <%= render 'categories/form', category_project: @category_project, project: @project unless @project.has_two_categories? %>
             <%= render 'form', project: @project, crud: 'Edit project' if users_project? %>
