@@ -1,10 +1,11 @@
 <div class="column">
-  <%= "video" unless @project.video %>
-  <%= "about" unless @project.contents.find_by(kind: 'about') %>
-  <%= "context" unless @project.contents.find_by(kind: 'context') %>
-  <%= "importance" unless @project.contents.find_by(kind: 'importance') %>
-  <%= "goals" unless @project.contents.find_by(kind: 'goals') %>
-  <%= "pool" unless @project.pool %>
-  <%= "category" unless @project.categories.length > 0 %>
+  <h3>Fill these out to post</h3>
+  <%= "video" unless @project.video %> <br>
+  <%= "about" unless @project.contents.find_by(kind: 'about') %><br>
+  <%= "context" unless @project.contents.find_by(kind: 'context') %><br>
+  <%= "importance" unless @project.contents.find_by(kind: 'importance') %><br>
+  <%= "goals" unless @project.contents.find_by(kind: 'goals') %><br>
+  <%= "pool" unless @project.pool %><br>
+  <%= "category" unless @project.categories.length > 0 %><br>
   <%= "stripe account" unless @project.user.stripe_account %>
 </div>
