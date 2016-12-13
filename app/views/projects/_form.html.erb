@@ -24,6 +24,7 @@
     <% end %>
     <%= f.submit crud, class: "expanded large button" %>
     <% end %>
+    <%= render 'projects/need-to-post' unless project.postable? %>
 </div>
 
 <% if crud == 'Create project' %>
@@ -31,5 +32,3 @@
 <% elsif crud == 'Edit project' %>
 <a data-open="crud-project" class="button">Edit project</a>
 <% end %>
-
-<%= render 'need-to-post' %>
