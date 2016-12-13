@@ -85,3 +85,6 @@ section:hover, #log:hover, .input-group-label:hover {
 .input-group-label{
   background-color: #3D3D3D;
 }
+.reveal-overlay{
+display: black;
+}
